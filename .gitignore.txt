@@ -7,7 +7,7 @@
 
     <!-- CSS och JS laddas in -->
     <link rel="stylesheet" type="text/css" href="data/style.css">
-    <script src="data/js/index.js" defer></script>
+    <script src="data/js/script.js" defer></script>
   </head>
   <body>
   <header>
