@@ -1,1 +1,49 @@
+:root{
+  --color-lightpurple--: rgb(137,96,158);
+  --color-black--: rgb(0,0,0);
+  --color-white--: rgb(255,255,255);
+  --color-lightgrey--: rgb(179,179,179);
+}
 /* CSS för vårt grupparbete */
+body{
+  background-color: var(--color-lightpurple--);
+
+}
+h1{
+  text-align: center;
+  color: var(--color-white--);
+}
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.boards{
+  width: 30%;
+  min-height: 10%;
+  background-color: var(--color-lightgrey--);
+}
+.iteamHead{
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.iteamsContainer{
+  background-color: white;
+}
+.addCardBtn{
+  margin-left: 2%;
+  margin-bottom: -2%;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--color-lightgrey--);
+}
+.addSymbol{
+
+}
+.addCardText{
+  font-weight: bold;
+}
