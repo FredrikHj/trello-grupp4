@@ -13,8 +13,6 @@
   <header>
      <h1>Todo boards</h1>
   </header>
-
-
   <main>
     <section class="boards">
       <p class="iteamHead">Todo</p>
@@ -36,13 +34,8 @@
       </div>
     </section>
   </main>
-
   <footer>
 
   </footer>
-  <br><br>
-  <div id="popUp">
-    Skapa popuppen här :)
-  </div>
   </body>
 </html>
