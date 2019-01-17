@@ -7,7 +7,6 @@
 /* CSS för vårt grupparbete */
 body{
   background-color: var(--color-lightpurple--);
-
 }
 h1{
   text-align: center;
@@ -33,17 +32,24 @@ main{
   background-color: white;
 }
 .addCardBtn{
-  margin-left: 2%;
-  margin-bottom: -2%;
-  width: 40%;
+  position: relative;
+  bottom: -18%;
+  left: 0%;
+  padding-left: 4%;
+  width: 96%;
+  height: 5%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   background-color: var(--color-lightgrey--);
 }
-.addSymbol{
+.addCardBtn:hover{
+  background-color: #6b808c;
+}
 
+.addSymbol{
+  margin-right: 2%;
+  font-size: 1.2em;
 }
 .addCardText{
+  font-size: 1.2em;
   font-weight: bold;
 }
