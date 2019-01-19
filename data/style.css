@@ -19,19 +19,19 @@ main{
 }
 .boards{
   width: 30%;
-  min-height: 10%;
+  min-height: 100px;
   background-color: var(--color-lightgrey--);
 }
-.iteamHead{
+.boards__iteamHead{
   margin-top: 1%;
   margin-left: 1%;
   font-size: 1.5em;
   font-weight: bold;
 }
-.iteamsContainer{
+.boards__iteamsContainer{
   background-color: white;
 }
-.addCardBtn{
+.boards__addCardBtn{
   position: relative;
   bottom: -18%;
   left: 0%;
@@ -41,15 +41,14 @@ main{
   display: flex;
   background-color: var(--color-lightgrey--);
 }
-.addCardBtn:hover{
+.boards__addCardBtn:hover{
   background-color: #6b808c;
 }
 
-.addSymbol{
+.boards__addCardBtn__addSymbol{
   margin-right: 2%;
-  font-size: 1.2em;
+  font-size: 1em;
 }
-.addCardText{
-  font-size: 1.2em;
-  font-weight: bold;
+.boards__addCardBtn__addCardText{
+  font-size: 1em;
 }
