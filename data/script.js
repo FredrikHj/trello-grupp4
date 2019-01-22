@@ -7,7 +7,7 @@ let descriptionText;
 
 let saveButton = document.querySelector('.popup__saveButton');
 saveButton.addEventListener('click', function(e){
-    
+
     descriptionText = document.querySelector('.popup__textarea');
     let description = descriptionText.value;
     console.log(descriptionText)
