@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>Todo boards</title>
 
     <!-- CSS och JS laddas in -->
@@ -11,7 +13,7 @@
   </head>
   <body>
     <header>
-       <h1>Todo boards</h1>
+       <h1 class="pageheader">Todo boards</h1>
     </header>
     <main>
       <section class="boards">
@@ -29,14 +31,44 @@
         <div class="boards__iteamsContainer"></div>
         <div class="boards__addCardBtn"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Lägg till ett kort!</p> </div>
       </section>
+
+      
+
+
     </main>
 
     <footer>
 
     </footer>
     <br><br>
-    <div id="popUp">
-      Skapa popuppen här :)
+    <div class="popup-container">
+      <div class="popup">
+
+
+        <div class="popup__header">
+          <i class="material-icons popup__textFieldIcon">line_weight</i>
+          <input type="text" class="popup__textField" placeholder="Här kommer titeln ligga">
+          <div class="popup__todaysDate">dagens datum</div>
+        </div>
+
+        <div class="popup__descriptionFieldContainer">
+          <i class="material-icons popup__descriptionIcon">list</i>
+          <h3 class="popup__descriptionHeader">Beskrinvning</h3>
+          <textarea class="popup__textarea displayNone" cols="50" rows="7"></textarea>
+
+          <div type="text" class="popup__fakeTextDiv">Klicka här för att lägga till din Beskrinvning</div>
+            <!-- <ul>
+               
+            </ul> -->
+        </div>
+        <div class="popup__saveCloseContainer displayNone">
+        <button class="popup__saveButton">Spara</button>
+          <div class="popup__closeContainer"></div>
+          <div class="popup__close"></div>
+        </div>
+      </div>
+
+      </div>
     </div>
   </body>
 </html>
