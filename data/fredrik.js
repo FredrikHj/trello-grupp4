@@ -1,12 +1,13 @@
-/* JS som Fredrik gör i vårt vårt grupparbete */
-// Add iteam
+/* JS som Fredrik gör i vårt grupparbete */
+let getPopup = document.querySelector('.popup-container');
+
+// Add cards
 addIteam();
 function addIteam(){
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
     getTargetBtn.addEventListener('click', function(){
-      let getPopup = document.querySelector('.popup-container');
       getPopup.setAttribute('style', 'display: block');
 
     // Datum och tid --------------------------------------------------------------------------------------------
@@ -58,4 +59,13 @@ function addIteam(){
 
     });
   }
+}
+
+// Avsluta knapp
+closeBtn();
+function closeBtn(){
+  let getPopupCloseBtn = document.querySelector('.popup__close');
+  getPopupCloseBtn.addEventListener('click', function(){
+    getPopup.style.display = 'none';
+  });
 }
