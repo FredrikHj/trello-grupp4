@@ -1,7 +1,7 @@
-/* Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer */
+// Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
 import andreas from './andreas.js';
-import elin from './elin.js';
-
+//import elin from './elin.js';
+ 
 let getPopup = document.querySelector('.popup-container');
 
 // Add cards
