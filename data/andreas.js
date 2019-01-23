@@ -1,8 +1,8 @@
 
-
+let textArray = [];
 function saveText(){
 
-    let textArray = [];
+    
 
     let selectSaveButton = document.querySelector('.popup__saveButton');
     selectSaveButton.addEventListener('click', function(){
@@ -13,7 +13,7 @@ function saveText(){
         let text = selectText.value;
 
         textArray.push(text);
-        console.log(textArray)
+        console.log(textArray);
 
         text = text.replace(/\r?\n/g, '<br/>');
 
@@ -27,6 +27,7 @@ function saveText(){
         pTag.classList.add('popup__pTag');
         selectText.value = '';
         editText()
+        
     })
     
 }
@@ -47,7 +48,7 @@ function editText(){
             selectAbortButton.style.display = 'block';
 
             let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
-            selectTextArea.value = selectContainer.textContent; // konvertera tillbaka till radbrytning...
+            selectTextArea.value = textArray[textArray.length -1]; // konvertera tillbaka till radbrytning...
             selectContainer.remove(selectContainer);
             
         });
@@ -104,6 +105,7 @@ let exportObject = {
     saveText: saveText,
     editText: editText,
     abortText: abortText,
+    
 
 };
 

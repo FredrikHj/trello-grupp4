@@ -1,9 +1,10 @@
 (function () {
     'use strict';
 
+    let textArray = [];
     function saveText(){
 
-        let textArray = [];
+        
 
         let selectSaveButton = document.querySelector('.popup__saveButton');
         selectSaveButton.addEventListener('click', function(){
@@ -28,6 +29,7 @@
             pTag.classList.add('popup__pTag');
             selectText.value = '';
             editText();
+            
         });
         
     }
@@ -48,7 +50,7 @@
                 selectAbortButton.style.display = 'block';
 
                 let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
-                selectTextArea.value = selectContainer.textContent; // konvertera tillbaka till radbrytning...
+                selectTextArea.value = textArray[textArray.length -1]; // konvertera tillbaka till radbrytning...
                 selectContainer.remove(selectContainer);
                 
             });
@@ -105,11 +107,13 @@
         saveText: saveText,
         editText: editText,
         abortText: abortText,
+        
 
     };
 
-    /* Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer */
-
+    // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
+    //import elin from './elin.js';
+     
     let getPopup = document.querySelector('.popup-container');
 
     // Add cards
