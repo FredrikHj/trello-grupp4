@@ -11,7 +11,7 @@ function addIteam(){
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
     getTargetBtn.addEventListener('click', function(){
-      getPopup.setAttribute('style', 'display: block');
+      getPopup.classList.add('displayBlock');
 
     // Datum och tid --------------------------------------------------------------------------------------------
     let getDatePlace = document.querySelector('.popup__todaysDate');
@@ -65,11 +65,3 @@ function addIteam(){
   }
 }
 
-// Avsluta knapp
-closeBtn();
-function closeBtn(){
-  let getPopupCloseBtn = document.querySelector('.popup__close');
-  getPopupCloseBtn.addEventListener('click', function(){
-    getPopup.style.display = 'none';
-  });
-}

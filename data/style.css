@@ -187,6 +187,10 @@ main{
   cursor: pointer;
 }
 
+.popup__closeUpRight{
+  position: absolute;
+}
+
 .popup__close:before{
   content:'';
   position: absolute;
@@ -261,4 +265,8 @@ main{
   position: relative;
   font-size: 1rem;
   margin: 30px 30px 30px 50px;
+}
+
+pre{
+  font-family: 'Times New Roman', Times, serif
 }

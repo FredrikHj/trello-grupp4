@@ -1,58 +1,110 @@
 (function () {
     'use strict';
 
-    function descriptionText(){
+    function saveText(){
 
-    //EventListener  "spara"-button and insert Ptag when saved. The Ptag should also be inserted to main page. make description editible.
+        let textArray = [];
 
+        let selectSaveButton = document.querySelector('.popup__saveButton');
+        selectSaveButton.addEventListener('click', function(){
+            let selectText = document.querySelector('.popup__textarea');
+            let selectSaveButton = document.querySelector('.popup__saveButton');
+            let selectAbortButton = document.querySelector('.popup__close');
 
-    let descriptionText;
-    let saveButton = document.querySelector('.popup__saveButton');
-    saveButton.addEventListener('click', function(e){
+            let text = selectText.value;
 
-        descriptionText = document.querySelector('.popup__textarea');
-        let description = descriptionText.value;
-        console.log(descriptionText);
+            textArray.push(text);
+            console.log(textArray);
 
-        let hideTextArea = document.querySelector('.popup__textarea');
-        hideTextArea.classList.add('displayNone');
+            text = text.replace(/\r?\n/g, '<br/>');
 
-        let popup__saveCloseContainer = document.querySelector('.popup__saveCloseContainer');
+            let pTag = document.createElement('p');
+            pTag.innerHTML = text;
+            let selectContainer = document.querySelector('.popup__descriptionFieldContainer');
+            selectContainer.appendChild(pTag);
+            selectText.style.display = 'none';
+            selectSaveButton.style.display = 'none';
+            selectAbortButton.style.display = 'none';
+            pTag.classList.add('popup__pTag');
+            selectText.value = '';
+            editText();
+        });
+        
+    }
 
-        popup__saveCloseContainer.classList.add('displayNone');
+    function editText(){
+        
+        let selectPTag = document.querySelectorAll('.popup__pTag');
+            
+        for(let i = 0; i < selectPTag.length; i++){
+            selectPTag[i].addEventListener('click', function(){
+                
+                let selectTextArea = document.querySelector('.popup__textarea');
+                let selectSaveButton = document.querySelector('.popup__saveButton');
+                let selectAbortButton = document.querySelector('.popup__close');
 
-        let insertText = document.querySelector('.popup__descriptionFieldContainer');
-        let pTag = document.createElement('p');
-        pTag.classList.add('popup__Ptag');
-        pTag.textContent = description;
-        insertText.appendChild(pTag);
+                selectTextArea.style.display = 'block';
+                selectSaveButton.style.display = 'block';
+                selectAbortButton.style.display = 'block';
 
-    });
+                let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
+                selectTextArea.value = selectContainer.textContent; // konvertera tillbaka till radbrytning...
+                selectContainer.remove(selectContainer);
+                
+            });
+        }
+
+        
 
     }
 
+    function abortText(){
 
-    function removeFakeTextAndInsertTextArea(){
-    // change to correct textArea
-    let fakteTextDiv = document.querySelector('.popup__fakeTextDiv');
+        let selectAbortButton = document.querySelector('.popup__close');
+        let selectAbortButtonRight = document.querySelector('.popup__closeUpRight');
 
-    fakteTextDiv.addEventListener('click', function(e){
-        fakteTextDiv.classList.add('displayNone');
-
-        let popup__textarea = document.querySelector('.popup__textarea');
-        let popup__saveCloseContainer = document.querySelector('.popup__saveCloseContainer');
-
-        popup__saveCloseContainer.classList.remove('displayNone');
-        popup__textarea.classList.remove('displayNone');
-
-    });
+        selectAbortButton.addEventListener('click', function(){
+            let selectPopup = document.querySelector('.popup-container');
+            let selectTextArea = document.querySelector('.popup__textarea');
+            let selectSaveButton = document.querySelector('.popup__saveButton');
+            selectPopup.classList.add('displayNone');
+            selectPopup.classList.remove('displayBlock');
+            // clear popup window
+            let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
+            selectContainer.remove(selectContainer);
+            selectTextArea.style.display = 'block';
+            selectSaveButton.style.display = 'block';
+            selectAbortButton.style.display = 'block';
+            selectTextArea.value = '';
+            
+        });
+        selectAbortButtonRight.addEventListener('click', function(){
+            let selectPopup = document.querySelector('.popup-container');
+            let selectTextArea = document.querySelector('.popup__textarea');
+            let selectSaveButton = document.querySelector('.popup__saveButton');
+            selectPopup.classList.add('displayNone');
+            selectPopup.classList.remove('displayBlock');
+            // clear popup window
+            let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
+            selectContainer.remove(selectContainer);
+            selectTextArea.style.display = 'block';
+            selectSaveButton.style.display = 'block';
+            selectAbortButton.style.display = 'block';
+            selectTextArea.value = '';
+        });
+        
+        
+        
     }
 
+    saveText();
+    abortText();
 
     let exportObject = {
 
-        descriptionText: descriptionText,
-        removeFakeTextAndInsertTextArea: removeFakeTextAndInsertTextArea,
+        saveText: saveText,
+        editText: editText,
+        abortText: abortText,
 
     };
 
@@ -67,7 +119,7 @@
       for (let i = 0; i < getListenerBtn.length; i++) {
         let getTargetBtn = getListenerBtn[i];
         getTargetBtn.addEventListener('click', function(){
-          getPopup.setAttribute('style', 'display: block');
+          getPopup.classList.add('displayBlock');
 
         // Datum och tid --------------------------------------------------------------------------------------------
         let getDatePlace = document.querySelector('.popup__todaysDate');
@@ -112,15 +164,6 @@
         exportObject.removeFakeTextAndInsertTextArea();
         });
       }
-    }
-
-    // Avsluta knapp
-    closeBtn();
-    function closeBtn(){
-      let getPopupCloseBtn = document.querySelector('.popup__close');
-      getPopupCloseBtn.addEventListener('click', function(){
-        getPopup.style.display = 'none';
-      });
     }
 
 }());
