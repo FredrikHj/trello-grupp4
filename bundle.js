@@ -1,13 +1,11 @@
 'use strict';
 
-var andreas = (function() {
-
-
-let descriptionText;
-
+function descriptionText(){
 
 //EventListener  "spara"-button and insert Ptag when saved. The Ptag should also be inserted to main page. make description editible.
 
+
+let descriptionText;
 let saveButton = document.querySelector('.popup__saveButton');
 saveButton.addEventListener('click', function(e){
 
@@ -30,12 +28,11 @@ saveButton.addEventListener('click', function(e){
 
 });
 
+}
 
-
-// change to correct textArea
 
 function removeFakeTextAndInsertTextArea(){
-
+// change to correct textArea
 let fakteTextDiv = document.querySelector('.popup__fakeTextDiv');
 
 fakteTextDiv.addEventListener('click', function(e){
@@ -51,8 +48,11 @@ fakteTextDiv.addEventListener('click', function(e){
 }
 
 
-removeFakeTextAndInsertTextArea();
+let exportObject = {
 
-}());
+    descriptionText: descriptionText,
+    removeFakeTextAndInsertTextArea: removeFakeTextAndInsertTextArea,
 
-module.exports = andreas;
+};
+
+module.exports = exportObject;
