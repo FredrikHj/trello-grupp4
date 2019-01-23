@@ -102,15 +102,6 @@
     saveText();
     abortText();
 
-    let exportObject = {
-
-        saveText: saveText,
-        editText: editText,
-        abortText: abortText,
-        
-
-    };
-
     // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
     //import elin from './elin.js';
      
@@ -165,7 +156,7 @@
 
         getDatePlace.textContent = dd + " " + monthname + " " + yyyy;
         // Kalla på function för beskrivning utvikning
-        exportObject.removeFakeTextAndInsertTextArea();
+        
         });
       }
     }

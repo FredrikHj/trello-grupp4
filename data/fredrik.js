@@ -60,7 +60,7 @@ function addIteam(){
       return i;
     }
     // Kalla på function för beskrivning utvikning
-    andreas.removeFakeTextAndInsertTextArea();
+    
     });
   }
 }
