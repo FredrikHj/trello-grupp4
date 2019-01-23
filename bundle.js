@@ -1,18 +1,19 @@
+'use strict';
 
-
-
-function descriptionText(){
-
-//EventListener  "spara"-button and insert Ptag when saved. The Ptag should also be inserted to main page. make description editible.
+var andreas = (function() {
 
 
 let descriptionText;
+
+
+//EventListener  "spara"-button and insert Ptag when saved. The Ptag should also be inserted to main page. make description editible.
+
 let saveButton = document.querySelector('.popup__saveButton');
 saveButton.addEventListener('click', function(e){
 
     descriptionText = document.querySelector('.popup__textarea');
     let description = descriptionText.value;
-    console.log(descriptionText)
+    console.log(descriptionText);
 
     let hideTextArea = document.querySelector('.popup__textarea');
     hideTextArea.classList.add('displayNone');
@@ -23,17 +24,18 @@ saveButton.addEventListener('click', function(e){
 
     let insertText = document.querySelector('.popup__descriptionFieldContainer');
     let pTag = document.createElement('p');
-    pTag.classList.add('popup__Ptag')
+    pTag.classList.add('popup__Ptag');
     pTag.textContent = description;
     insertText.appendChild(pTag);
 
 });
 
-}
 
+
+// change to correct textArea
 
 function removeFakeTextAndInsertTextArea(){
-// change to correct textArea
+
 let fakteTextDiv = document.querySelector('.popup__fakeTextDiv');
 
 fakteTextDiv.addEventListener('click', function(e){
@@ -45,15 +47,12 @@ fakteTextDiv.addEventListener('click', function(e){
     popup__saveCloseContainer.classList.remove('displayNone');
     popup__textarea.classList.remove('displayNone');
 
-})
+});
 }
 
 
-let exportObject = {
+removeFakeTextAndInsertTextArea();
 
-    descriptionText: descriptionText,
-    removeFakeTextAndInsertTextArea: removeFakeTextAndInsertTextArea,
+}());
 
-}
-
-export default exportObject;
+module.exports = andreas;
