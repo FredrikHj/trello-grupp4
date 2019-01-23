@@ -1,4 +1,7 @@
-/* JS som Fredrik gör i vårt grupparbete */
+/* Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer */
+import andreas from './andreas.js';
+import elin from './elin.js';
+
 let getPopup = document.querySelector('.popup-container');
 
 // Add cards
@@ -56,7 +59,8 @@ function addIteam(){
       if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
       return i;
     }
-
+    // Kalla på function för beskrivning utvikning
+    andreas.removeFakeTextAndInsertTextArea();
     });
   }
 }
