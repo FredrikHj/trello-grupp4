@@ -54,6 +54,6 @@ let exportObject = {
     descriptionText: descriptionText,
     removeFakeTextAndInsertTextArea: removeFakeTextAndInsertTextArea,
 
-}
+};
 
 export default exportObject;
