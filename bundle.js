@@ -2,6 +2,7 @@
     'use strict';
 
     let textArray = [];
+    let titleArray = [];
     function saveText(){
 
         
@@ -11,10 +12,13 @@
             let selectText = document.querySelector('.popup__textarea');
             let selectSaveButton = document.querySelector('.popup__saveButton');
             let selectAbortButton = document.querySelector('.popup__close');
+            let selectInputText = document.querySelector('.popup__textField');
 
             let text = selectText.value;
-
+            let inputText = selectInputText.value;
             textArray.push(text);
+            titleArray.push(inputText);
+            console.log(titleArray);
             console.log(textArray);
 
             text = text.replace(/\r?\n/g, '<br/>');
@@ -50,8 +54,10 @@
                 selectAbortButton.style.display = 'block';
 
                 let selectContainer = document.querySelector('.popup__descriptionFieldContainer').lastChild;
-                selectTextArea.value = textArray[textArray.length -1]; // konvertera tillbaka till radbrytning...
+                selectTextArea.value = textArray[textArray.length -1]; 
                 selectContainer.remove(selectContainer);
+
+                // lägg till så att titelfältet rensas.
                 
             });
         }
