@@ -30,7 +30,7 @@ main{
   font-size: 1.5em;
   font-weight: bold;
 }
-.boards__iteamsContainer{
+.boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
   background-color: white;
 }
 .boards__addCardBtn{
@@ -140,7 +140,7 @@ main{
   line-height: 1.5rem;
   border-radius: 4px;
 
-  display: flex;
+ 
 }
 
 .popup__saveCloseContainer{
@@ -269,4 +269,10 @@ main{
 
 pre{
   font-family: 'Times New Roman', Times, serif
+}
+
+.boards__cards{
+  width: 30px;
+  height: 30px;
+  background-color: red;
 }

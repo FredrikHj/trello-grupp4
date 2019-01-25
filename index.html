@@ -18,24 +18,24 @@
     <main>
       <section class="boards">
         <p class="boards__iteamHead">Todo</p>
-        <div class="boards__iteamsContainer">
+        <div class="boards__iteamsContainerTodo">
           Expanderas med todos!
         </div>
-        <div class="boards__addCardBtn"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
+        <div class="boards__addCardBtn boards__addCardBtnTodo"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
       </section>
       <section class="boards">
         <p class="boards__iteamHead">Working on it</p>
-        <div class="boards__iteamsContainer">
+        <div class="boards__iteamsContainerWorking">
           Expanderas med todos!
         </div>
-        <div class="boards__addCardBtn"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
+        <div class="boards__addCardBtn boards__addCardBtnWorking"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
       </section>
       <section class="boards">
         <p class="boards__iteamHead">Done</p>
-        <div class="boards__iteamsContainer">
+        <div class="boards__iteamsContainerDone">
           Expanderas med todos!
         </div>
-        <div class="boards__addCardBtn"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
+        <div class="boards__addCardBtn boards__addCardBtnDone"> <p class="boards__addCardBtn__addSymbol">+</p><p class="boards__addCardBtn__addCardText">Add card</p> </div>
       </section>
 
 
@@ -60,13 +60,15 @@
         <div class="popup__descriptionFieldContainer">
           <i class="material-icons popup__descriptionIcon">list</i>
           <h3 class="popup__descriptionHeader">Beskrinvning</h3>
-          <textarea class="popup__textarea" cols="50" rows="7"></textarea>
+          <textarea class="popup__textarea" cols="50" rows="7" placeholder="Lägg till beskrivning"></textarea>
+          
 
         
             <!-- <ul>
 
             </ul> -->
         </div>
+        
         <div class="popup__saveCloseContainer ">
         <button class="popup__saveButton">Spara</button>
           <div class="popup__closeContainer"></div>

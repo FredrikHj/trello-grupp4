@@ -10,7 +10,21 @@ function addIteam(){
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
-    getTargetBtn.addEventListener('click', function(){
+    getTargetBtn.addEventListener('click', function(e){
+      
+      let saveButton = document.querySelector('.popup__saveButton')
+      console.log(saveButton)
+      if(e.target.classList[1] === 'boards__addCardBtnTodo'){
+        saveButton.classList.add('popup__saveButton--todo')
+      }
+      else if(e.target.classList[1] === 'boards__addCardBtnWorking'){
+        saveButton.classList.add('popup__saveButton--working')
+      }
+      else if(e.target.classList[1] === 'boards__addCardBtnDone'){
+        saveButton.classList.add('popup__saveButton--done')
+      }
+
+      console.log(e.target)
       getPopup.classList.add('displayBlock');
 
     // Datum och tid --------------------------------------------------------------------------------------------
