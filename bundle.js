@@ -42,28 +42,29 @@
            console.log(e.target);
 
            let createDiv = document.createElement('div');
-           createDiv.classList.add('boards__cards');
            
 
            for(let i = 0; i < cardSelector.length; i++){
                if(cardSelector[i].classList[1] === 'popup__saveButton--todo'){
+                   
+                   createDiv.classList.add('boards__cards__todo');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerTodo');
                    selectBoardItemContainer.appendChild(createDiv);
-
-                   console.log('todo');
                    cardSelector[i].classList.remove('popup__saveButton--todo');
        
                }
                else if(cardSelector[i].classList[1] === 'popup__saveButton--working'){
+                   
+                   createDiv.classList.add('boards__cards__working');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerWorking');
                    selectBoardItemContainer.appendChild(createDiv);
-                   console.log('working');
                    cardSelector[i].classList.remove('popup__saveButton--working');
                }
                else if(cardSelector[i].classList[1] === 'popup__saveButton--done'){
+                   
+                   createDiv.classList.add('boards__cards__done');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerDone');
                    selectBoardItemContainer.appendChild(createDiv);
-                   console.log('done');
                    cardSelector[i].classList.remove('popup__saveButton--done');
                }
            }
