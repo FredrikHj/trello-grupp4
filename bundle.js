@@ -3,6 +3,42 @@
 
    let textArray = [];
    let titleArray = [];
+
+       let todoObj = {
+           todos: [],
+           addTodos: function(title, desc){
+               this.todos.push({
+                   titles: title,
+                   descs: desc    
+               });
+           }
+       };
+       
+       let workingObj = {
+           workings: [],
+           addWorkings: function(title, desc){
+               this.workings.push({
+                   titles: title,
+                   descs: desc    
+               });
+           }
+       };
+       
+       let doneObj = {
+           dones: [],
+           addDones: function(title, desc){
+               this.dones.push({
+                   titles: title,
+                   descs: desc    
+               });
+           }
+       };
+
+
+
+
+
+
    function saveText(){
        let selectText = document.querySelector('.popup__textarea');
        if(selectText.value === '');
@@ -11,9 +47,11 @@
        let selectSaveButton = document.querySelector('.popup__saveButton');
        selectSaveButton.addEventListener('click', function(e){
            let selectText = document.querySelector('.popup__textarea');
+           // Textarean - Description.
            let selectSaveButton = document.querySelector('.popup__saveButton');
            let selectAbortButton = document.querySelector('.popup__close');
            let selectInputText = document.querySelector('.popup__textField');
+           // Titletexten.
 
            
 
@@ -42,30 +80,52 @@
            console.log(e.target);
 
            let createDiv = document.createElement('div');
-           
+           let createPTitle = document.createElement('p');
+           let createPdesc = document.createElement('p');
 
            for(let i = 0; i < cardSelector.length; i++){
                if(cardSelector[i].classList[1] === 'popup__saveButton--todo'){
-                   
                    createDiv.classList.add('boards__cards__todo');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerTodo');
                    selectBoardItemContainer.appendChild(createDiv);
                    cardSelector[i].classList.remove('popup__saveButton--todo');
+                   let selectDiv = document.querySelector('.boards__cards__todo');
+                   let title = createPTitle.textContent = titleArray[titleArray.length -1];
+                   let desc = createPdesc.textContent = textArray[textArray.length -1];
+                   /* selectDiv.appendChild(createPTitle);
+                   selectDiv.appendChild(createPdesc); */
+                   
+                   todoObj.addTodos(title, desc);
+                   
+                   console.log(todoObj.todos);
+                   
+
        
                }
                else if(cardSelector[i].classList[1] === 'popup__saveButton--working'){
-                   
                    createDiv.classList.add('boards__cards__working');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerWorking');
                    selectBoardItemContainer.appendChild(createDiv);
                    cardSelector[i].classList.remove('popup__saveButton--working');
+                   let title = createPTitle.textContent = titleArray[titleArray.length -1];
+                   let desc = createPdesc.textContent = textArray[textArray.length -1];
+                   // WorkingArray med objekt 
+                   workingObj.addWorkings(title, desc);
+                   console.log(workingObj.workings);
+
                }
                else if(cardSelector[i].classList[1] === 'popup__saveButton--done'){
-                   
                    createDiv.classList.add('boards__cards__done');
                    let selectBoardItemContainer = document.querySelector('.boards__iteamsContainerDone');
                    selectBoardItemContainer.appendChild(createDiv);
                    cardSelector[i].classList.remove('popup__saveButton--done');
+                   let title = createPTitle.textContent = titleArray[titleArray.length -1];
+                   let desc = createPdesc.textContent = textArray[textArray.length -1];
+                   // DoneArray med objekt 
+
+                   doneObj.addDones(title, desc);
+                   console.log(doneObj.dones);
+                  
                }
            }
 
@@ -74,6 +134,32 @@
        });
        
    }
+
+
+
+   /* function createObjs(identifier, title, desc){
+
+
+       let todoArr = [];
+       let workingArr = [];
+       let doneArr = [];
+       console.log(identifier)
+       console.log(title);
+       console.log(desc)
+
+       if(identifier === 'todo'){
+           let obj = {};
+           todoArr.push(title)
+           console.log(todoArr)
+       }
+       else if(identifier === 'working'){
+
+       }
+       else if(identifier === 'done'){
+
+       }
+
+   } */
 
    function editText(){
        

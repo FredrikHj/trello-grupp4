@@ -272,7 +272,9 @@ pre{
 }
 
 .boards__cards__todo, .boards__cards__working, .boards__cards__done{
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: rgb(206, 206, 206);
 }
