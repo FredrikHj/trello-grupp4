@@ -1,7 +1,7 @@
 // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
 import andreas from './andreas.js';
 //import elin from './elin.js';
- 
+
 let getPopup = document.querySelector('.popup-container');
 
 // Add cards
@@ -11,7 +11,7 @@ function addIteam(){
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
     getTargetBtn.addEventListener('click', function(e){
-      
+
       let saveButton = document.querySelector('.popup__saveButton')
       console.log(saveButton)
       if(e.target.classList[1] === 'boards__addCardBtnTodo'){
@@ -74,8 +74,10 @@ function addIteam(){
       return i;
     }
     // Kalla på function för beskrivning utvikning
-    
+
+    // Titel i popupen töms
+    let getTitelPopup = document.querySelector('.popup__textField');
+    getTitelPopup.value = '';
     });
   }
 }
-
