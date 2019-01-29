@@ -9,7 +9,7 @@ function renderView() {
 
   console.log('This should be the array with all todos');
   console.log(andreas.todoObj.todos); //This should be an array with all todos
-
+  
   //Creating test object
   let testObject = {
     todos: [
@@ -86,14 +86,7 @@ function renderView() {
   }
 }
 
-renderView();
-
-
-
-
-
-
-
+//renderView();
 
 
 let exportObject = {

@@ -1,4 +1,6 @@
 
+import elin from './elin.js';
+
 let textArray = [];
 let titleArray = [];
 let textField = document.querySelector('.popup__textField')
@@ -18,6 +20,7 @@ let textFromTextArea = textArea.value;
                 descs: desc    
             });
         }
+        
     };
     
     let workingObj = {
@@ -80,9 +83,19 @@ function removeClasLists(){
         saveButton.classList.remove('popup__saveButton--done');
 }
 
-function getTextFromFieldAndArea(){
+function saveContentInPopup(){
 
-    
+    popupPtag.textContent = '';
+    popupPtag.textContent = textFromTextArea;
+
+    if(popupPtag.textContent.length <= 0){
+        popupPtag.textContent = 'Lägg till beskrivning'
+    };
+
+    textArea.classList.add('displayNone');
+    textArea.classList.remove('displayBlock');
+    popupPtag.classList.add('displayBlock');
+    popupPtag.classList.remove('displayNone');
     
 
 }
@@ -95,40 +108,25 @@ function saveText(e){
     
     
     if(eventTarget.classList[1] === 'popup__saveButton--todo'){
-        /* if(todoObj.todos[todoObj.todos -1] === todoObj.todos[todoObj.todos -2]){
-            console.log('hej')
-        } */
-        popupPtag.textContent = '';
-        popupPtag.textContent = textFromTextArea;
-
-        if(popupPtag.textContent.length <= 0){
-            popupPtag.textContent = 'Lägg till beskrivning'
-        };
+        
+        saveContentInPopup();
 
         todoObj.addTodos(textFromTextField, textFromTextArea);
         console.log(todoObj.todos)
-        
-        textArea.classList.add('displayNone');
-        textArea.classList.remove('displayBlock');
-        popupPtag.classList.add('displayBlock');
-        popupPtag.classList.remove('displayNone');
-
-        
-        
-        // för att stoppa dubbeltryck på save... om textfield och textarea är samma som förra gången jag tryckte. return
-        // spara i objekt
-        
+        elin.renderView();
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
+        saveContentInPopup();
         workingObj.addWorkings(textFromTextField, textFromTextArea);
         console.log(workingObj.workings)
-        // spara i objekt
+        elin.renderView();
         
     }
     if(eventTarget.classList[1] === 'popup__saveButton--done'){
+        saveContentInPopup();
         doneObj.addDones(textFromTextField, textFromTextArea);
         console.log(doneObj.dones)
-        // spara i objekt
+        elin.renderView();
         
     }
 }
@@ -166,10 +164,10 @@ let exportObject = {
     editText: editText,
     abortText: abortText,
     removeClasLists: removeClasLists,
-    getTextFromFieldAndArea: getTextFromFieldAndArea,
     todoObj: todoObj,
     workingObj: workingObj,
     doneObj: doneObj,
+    saveContentInPopup: saveContentInPopup,
 };
 
 export default exportObject;
