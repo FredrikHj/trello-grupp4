@@ -95,8 +95,26 @@
        
        
        if(eventTarget.classList[1] === 'popup__saveButton--todo'){
+           /* if(todoObj.todos[todoObj.todos -1] === todoObj.todos[todoObj.todos -2]){
+               console.log('hej')
+           } */
+           popupPtag.textContent = '';
+           popupPtag.textContent = textFromTextArea;
+
+           if(popupPtag.textContent.length <= 0){
+               popupPtag.textContent = 'Lägg till beskrivning';
+           }
            todoObj.addTodos(textFromTextField, textFromTextArea);
            console.log(todoObj.todos);
+           
+           textArea.classList.add('displayNone');
+           textArea.classList.remove('displayBlock');
+           popupPtag.classList.add('displayBlock');
+           popupPtag.classList.remove('displayNone');
+
+           
+           
+           // för att stoppa dubbeltryck på save... om textfield och textarea är samma som förra gången jag tryckte. return
            // spara i objekt
            
        }
@@ -127,10 +145,12 @@
 
 
    function abortPopup(e){
+
        popupWindow = document.querySelector('.popup-container');
        popupWindow.classList.add('displayNone');
        popupWindow.classList.remove('displayBlock');
        textArea.value = '';
+       popupPtag.textContent = 'Lägg till en beskrivning';
        textArea.classList.add('displayNone');
        textArea.classList.remove('displayBlock');
        popupPtag.classList.add('displayBlock');
