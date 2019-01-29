@@ -118,18 +118,9 @@
       };
 
 
-
-
-
-
   function saveTextEvent(){
      
       saveButton.addEventListener('click', saveText);
-
-  }
-
-  function editText(){
-      
 
   }
 
@@ -160,7 +151,7 @@
   function saveContentInPopup(){
 
       popupPtag.textContent = '';
-      popupPtag.textContent = textFromTextArea;
+      popupPtag.innerHTML = textFromTextArea;
 
       if(popupPtag.textContent.length <= 0){
           popupPtag.textContent = 'Lägg till beskrivning';
@@ -183,7 +174,6 @@
       if(eventTarget.classList[1] === 'popup__saveButton--todo'){
           
           saveContentInPopup();
-
           todoObj.addTodos(textFromTextField, textFromTextArea);
           console.log(todoObj.todos);
           exportObject.renderView();
@@ -234,7 +224,6 @@
   let exportObject$1 = {
 
       saveTextEvent: saveTextEvent,
-      editText: editText,
       abortText: abortText,
       removeClasLists: removeClasLists,
       todoObj: todoObj,

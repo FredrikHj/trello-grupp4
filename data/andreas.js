@@ -1,8 +1,6 @@
 
 import elin from './elin.js';
 
-let textArray = [];
-let titleArray = [];
 let textField = document.querySelector('.popup__textField')
 let textArea = document.querySelector('.popup__textarea');
 let popupWindow = document.querySelector('.popup-container');
@@ -44,18 +42,9 @@ let textFromTextArea = textArea.value;
     };
 
 
-
-
-
-
 function saveTextEvent(){
    
     saveButton.addEventListener('click', saveText);
-
-}
-
-function editText(){
-    
 
 }
 
@@ -86,7 +75,7 @@ function removeClasLists(){
 function saveContentInPopup(){
 
     popupPtag.textContent = '';
-    popupPtag.textContent = textFromTextArea;
+    popupPtag.innerHTML = textFromTextArea;
 
     if(popupPtag.textContent.length <= 0){
         popupPtag.textContent = 'Lägg till beskrivning'
@@ -110,7 +99,6 @@ function saveText(e){
     if(eventTarget.classList[1] === 'popup__saveButton--todo'){
         
         saveContentInPopup();
-
         todoObj.addTodos(textFromTextField, textFromTextArea);
         console.log(todoObj.todos)
         elin.renderView();
@@ -161,7 +149,6 @@ function abortPopup(e){
 let exportObject = {
 
     saveTextEvent: saveTextEvent,
-    editText: editText,
     abortText: abortText,
     removeClasLists: removeClasLists,
     todoObj: todoObj,
