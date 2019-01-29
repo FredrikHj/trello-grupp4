@@ -140,7 +140,7 @@ main{
   line-height: 1.5rem;
   border-radius: 4px;
 
- 
+
 }
 
 .popup__saveCloseContainer{
@@ -277,4 +277,19 @@ pre{
   margin: 10px;
   border-radius: 4px;
   background-color: rgb(206, 206, 206);
+}
+
+/* CSS for the cards */
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__headerDiv {
+  display: flex;
+}
+
+.card__bottomDiv {
+  display: flex;
 }
