@@ -98,6 +98,22 @@ function saveContentInPopup(){
     
 
 }
+// edit under konstruktion
+function editTodo(){
+    let card = document.querySelectorAll('.card');
+    for(let i = 0; i < card.length; i++){
+        card[i].addEventListener('click', edit)
+    }
+    
+}
+
+function edit(e){
+    console.log(e.target);
+    popupWindow.classList.remove('displayNone');
+    popupWindow.classList.add('displayBlock');
+    
+    
+}
 
 function saveText(e){
     let eventTarget = e.target;
@@ -115,6 +131,7 @@ function saveText(e){
         console.log(idTodo)
         console.log(todoObj.todos)
         elin.renderView();
+        editTodo();
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
         idWorkings = 'Workings: ' + workingsCounter;
@@ -124,6 +141,7 @@ function saveText(e){
         console.log(idWorkings);
         console.log(workingObj.workings)
         elin.renderView();
+        editTodo();
         
     }
     if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -134,6 +152,7 @@ function saveText(e){
         console.log(idDone);
         console.log(doneObj.dones)
         elin.renderView();
+        editTodo();
         
     }
 }
@@ -174,6 +193,7 @@ let exportObject = {
     workingObj: workingObj,
     doneObj: doneObj,
     saveContentInPopup: saveContentInPopup,
+    editTodo: editTodo,
 };
 
 

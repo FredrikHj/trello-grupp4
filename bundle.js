@@ -173,6 +173,22 @@
       
 
   }
+  // edit under konstruktion
+  function editTodo(){
+      let card = document.querySelectorAll('.card');
+      for(let i = 0; i < card.length; i++){
+          card[i].addEventListener('click', edit);
+      }
+      
+  }
+
+  function edit(e){
+      console.log(e.target);
+      popupWindow.classList.remove('displayNone');
+      popupWindow.classList.add('displayBlock');
+      
+      
+  }
 
   function saveText(e){
       let eventTarget = e.target;
@@ -190,6 +206,7 @@
           console.log(idTodo);
           console.log(todoObj.todos);
           exportObject.renderView();
+          editTodo();
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
           idWorkings = 'Workings: ' + workingsCounter;
@@ -199,6 +216,7 @@
           console.log(idWorkings);
           console.log(workingObj.workings);
           exportObject.renderView();
+          editTodo();
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -209,6 +227,7 @@
           console.log(idDone);
           console.log(doneObj.dones);
           exportObject.renderView();
+          editTodo();
           
       }
   }
@@ -249,6 +268,7 @@
       workingObj: workingObj,
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
+      editTodo: editTodo,
   };
 
   // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
