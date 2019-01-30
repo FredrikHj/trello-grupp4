@@ -85,13 +85,21 @@
   let saveButton = document.querySelector('.popup__saveButton');
   let textFromTextField = textField.value;
   let textFromTextArea = textArea.value;
+  let idTodo;
+  let idWorkings;
+  let idDone;
+  let todoCounter = 1;
+  let workingsCounter = 1;
+  let doneCounter = 1;
+
 
       let todoObj = {
           todos: [],
-          addTodos: function(title, desc){
+          addTodos: function(title, desc, identifier){
               this.todos.push({
                   titles: title,
-                  descs: desc    
+                  descs: desc,
+                  identifier: identifier
               });
           }
           
@@ -99,20 +107,22 @@
       
       let workingObj = {
           workings: [],
-          addWorkings: function(title, desc){
+          addWorkings: function(title, desc, identifier){
               this.workings.push({
                   titles: title,
-                  descs: desc    
+                  descs: desc,
+                  identifier: identifier
               });
           }
       };
       
       let doneObj = {
           dones: [],
-          addDones: function(title, desc){
+          addDones: function(title, desc, identifier){
               this.dones.push({
                   titles: title,
-                  descs: desc    
+                  descs: desc,
+                  identifier: identifier
               });
           }
       };
@@ -171,23 +181,32 @@
       textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
       
       
+      
       if(eventTarget.classList[1] === 'popup__saveButton--todo'){
-          
+          idTodo = 'Todo: ' + todoCounter;
+          todoCounter++;
           saveContentInPopup();
-          todoObj.addTodos(textFromTextField, textFromTextArea);
+          todoObj.addTodos(textFromTextField, textFromTextArea, idTodo);
+          console.log(idTodo);
           console.log(todoObj.todos);
           exportObject.renderView();
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
+          idWorkings = 'Workings: ' + workingsCounter;
+          workingsCounter++;
           saveContentInPopup();
-          workingObj.addWorkings(textFromTextField, textFromTextArea);
+          workingObj.addWorkings(textFromTextField, textFromTextArea, idWorkings);
+          console.log(idWorkings);
           console.log(workingObj.workings);
           exportObject.renderView();
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
+          idDone = 'Done: ' + doneCounter;
+          doneCounter++;
           saveContentInPopup();
-          doneObj.addDones(textFromTextField, textFromTextArea);
+          doneObj.addDones(textFromTextField, textFromTextArea, idDone);
+          console.log(idDone);
           console.log(doneObj.dones);
           exportObject.renderView();
           
