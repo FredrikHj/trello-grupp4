@@ -83,6 +83,7 @@
   let popupPtag = document.querySelector('.popup__pTag');
   let abortButtons = document.querySelectorAll('.popup__close');
   let saveButton = document.querySelector('.popup__saveButton');
+
   let textFromTextField = textField.value;
   let textFromTextArea = textArea.value;
   let idTodo;
@@ -190,11 +191,26 @@
       
   }
 
+  function del(){
+      let deleteX = document.querySelector('.card__headerDiv__deleteButton');
+      deleteX.addEventListener('click', deleteCard);
+  }
+
+  function deleteCard(e){
+      if(e.target.classList === 'card__headerDiv__deleteButton');
+      let deleteX = document.querySelector('.card__headerDiv__deleteButton');
+     
+      deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
+      console.log(e.target);
+  }
+     
+
   function saveText(e){
       let eventTarget = e.target;
       textFromTextField = textField.value;
       textFromTextArea = textArea.value;
       textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
+      
       
       
       
@@ -207,6 +223,7 @@
           console.log(todoObj.todos);
           exportObject.renderView();
           editTodo();
+          del();
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
           idWorkings = 'Workings: ' + workingsCounter;
@@ -269,6 +286,7 @@
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
       editTodo: editTodo,
+      
   };
 
   // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
