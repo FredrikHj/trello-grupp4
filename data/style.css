@@ -16,15 +16,20 @@ body{
 }
 main{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
 }
+
+.boards__container{
+    height: 100%;
+    width: 300px;;
+}
+
 .boards{
-  width: 30%;
-  
+ 
   background-color: var(--color-lightgrey--);
   border-radius: 5px;
     border: 1px solid #8d8d8d;
+box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
     
     
     
@@ -38,7 +43,7 @@ main{
 }
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
   background-color: var(--color-lightgrey--);
-    
+   
     border-radius: 5px;
     margin: 10 10;
     
@@ -49,23 +54,24 @@ main{
     position: relative;
     top: 8px;
     left: 20px;
+    
 }
 
 .card{
     background-color: white ;
     margin: 20px;
     padding: 20px;
+    box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+    border-radius: 4px;
 }
 
 
 .boards__addCardBtn{
-  position: relative;
-    
-  border-radius: 2px;
-  width: 100%;
-  height: 5%;
-  display: flex;
-  background-color: var(--color-lightgrey--);
+    position: relative;
+    height: 30px;
+    display: flex;
+    background-color: var(--color-lightgrey--);
+    border-radius: 0px 0px 5px 5px;
 }
 .boards__addCardBtn:hover{
   background-color: var(--color-less-lighter-grey--);
