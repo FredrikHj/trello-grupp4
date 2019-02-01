@@ -7,11 +7,27 @@
     let workingContainer = document.querySelector('.boards__iteamsContainerWorking');
     let doneContainer = document.querySelector('.boards__iteamsContainerDone');
 
-    console.log('This should be the array with all todos');
-    console.log(exportObject$1.todoObj.todos); //This should be an array with all todos
+    // console.log('This should be the array with all todos');
+    // console.log(andreas.todoObj.todos);
+
+    //Creating test object
+    let testObject = {
+      todos: [
+        {
+          titles: 'titel',
+          descs: 'beskrivning'
+        }, {
+          titles: 'do cleaning-up',
+          descs: ''
+        }, {
+          titles: 'do shopping',
+          descs: 'boy milk and eggs'
+        }
+      ],
+    };
 
     //Looping through all cards in todo
-    for(let todo of exportObject$1.todoObj.todos) {
+    for(let todo of testObject.todos) {
       //Creating variables
       let titleText = todo.titles;
       let descriptionText = todo.descs;
@@ -70,7 +86,7 @@
     }
   }
 
-  //renderView();
+  renderView();
 
 
   let exportObject = {

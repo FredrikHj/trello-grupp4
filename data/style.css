@@ -286,10 +286,16 @@ pre{
   flex-direction: column;
 }
 
-.card__headerDiv {
-  display: flex;
-}
+  .card__headerDiv {
+    display: flex;
+  }
 
-.card__bottomDiv {
-  display: flex;
-}
+    .card__headerDiv__title{
+      text-transform: capitalize;
+    }
+
+    .card__headerDiv__deleteButton{}
+
+  .card__bottomDiv {
+    display: flex;
+  }
