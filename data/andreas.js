@@ -54,17 +54,21 @@ let doneCounter = 1;
 
 
 function saveTextEvent(){
-   
+    
     saveButton.addEventListener('click', saveText);
 
+    
 }
 
 function abortText(){
+     
     
     for(let i = 0; i < abortButtons.length; i++){
         abortButtons[i].addEventListener('click', abortPopup)
+        
     }
     showArea();
+    
    
 }
 
@@ -100,21 +104,21 @@ function saveContentInPopup(){
 
 }
 // edit under konstruktion
-function editTodo(){
-    let card = document.querySelectorAll('.card');
-    for(let i = 0; i < card.length; i++){
-        card[i].addEventListener('click', edit)
-    }
-    
-}
-
-function edit(e){
-    console.log(e.target);
-    popupWindow.classList.remove('displayNone');
-    popupWindow.classList.add('displayBlock');
-    
-    
-}
+//function editTodo(){
+//    let card = document.querySelectorAll('.card');
+//    for(let i = 0; i < card.length; i++){
+//        card[i].addEventListener('click', edit)
+//    }
+//    
+//}
+//
+//function edit(e){
+//    console.log(e.target);
+//    popupWindow.classList.remove('displayNone');
+//    popupWindow.classList.add('displayBlock');
+//    
+//    
+//}
 
 function del(){
     let deleteX = document.querySelector('.card__headerDiv__deleteButton');
@@ -131,6 +135,8 @@ function deleteCard(e){
    
 
 function saveText(e){
+    saveButton.removeEventListener('click', saveText);
+    console.log(saveButton)
     let eventTarget = e.target;
     textFromTextField = textField.value;
     textFromTextArea = textArea.value;
@@ -147,7 +153,6 @@ function saveText(e){
         console.log(idTodo)
         console.log(todoObj.todos)
         elin.renderView();
-        editTodo();
         del();
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
@@ -158,7 +163,7 @@ function saveText(e){
         console.log(idWorkings);
         console.log(workingObj.workings)
         elin.renderView();
-        editTodo();
+       
         
     }
     if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -169,7 +174,7 @@ function saveText(e){
         console.log(idDone);
         console.log(doneObj.dones)
         elin.renderView();
-        editTodo();
+        
         
     }
 }
@@ -197,7 +202,7 @@ function abortPopup(e){
     textArea.classList.remove('displayBlock');
     popupPtag.classList.add('displayBlock');
     popupPtag.classList.remove('displayNone');
-    
+    saveTextEvent();
 }
 
 
@@ -210,7 +215,7 @@ let exportObject = {
     workingObj: workingObj,
     doneObj: doneObj,
     saveContentInPopup: saveContentInPopup,
-    editTodo: editTodo,
+    
     
 };
 

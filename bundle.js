@@ -137,17 +137,21 @@
 
 
   function saveTextEvent(){
-     
+      
       saveButton.addEventListener('click', saveText);
 
+      
   }
 
   function abortText(){
+       
       
       for(let i = 0; i < abortButtons.length; i++){
           abortButtons[i].addEventListener('click', abortPopup);
+          
       }
       showArea();
+      
      
   }
 
@@ -182,21 +186,21 @@
 
   }
   // edit under konstruktion
-  function editTodo(){
-      let card = document.querySelectorAll('.card');
-      for(let i = 0; i < card.length; i++){
-          card[i].addEventListener('click', edit);
-      }
-      
-  }
-
-  function edit(e){
-      console.log(e.target);
-      popupWindow.classList.remove('displayNone');
-      popupWindow.classList.add('displayBlock');
-      
-      
-  }
+  //function editTodo(){
+  //    let card = document.querySelectorAll('.card');
+  //    for(let i = 0; i < card.length; i++){
+  //        card[i].addEventListener('click', edit)
+  //    }
+  //    
+  //}
+  //
+  //function edit(e){
+  //    console.log(e.target);
+  //    popupWindow.classList.remove('displayNone');
+  //    popupWindow.classList.add('displayBlock');
+  //    
+  //    
+  //}
 
   function del(){
       let deleteX = document.querySelector('.card__headerDiv__deleteButton');
@@ -213,6 +217,8 @@
      
 
   function saveText(e){
+      saveButton.removeEventListener('click', saveText);
+      console.log(saveButton);
       let eventTarget = e.target;
       textFromTextField = textField.value;
       textFromTextArea = textArea.value;
@@ -229,7 +235,6 @@
           console.log(idTodo);
           console.log(todoObj.todos);
           exportObject.renderView();
-          editTodo();
           del();
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
@@ -240,7 +245,7 @@
           console.log(idWorkings);
           console.log(workingObj.workings);
           exportObject.renderView();
-          editTodo();
+         
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -251,7 +256,7 @@
           console.log(idDone);
           console.log(doneObj.dones);
           exportObject.renderView();
-          editTodo();
+          
           
       }
   }
@@ -279,7 +284,7 @@
       textArea.classList.remove('displayBlock');
       popupPtag.classList.add('displayBlock');
       popupPtag.classList.remove('displayNone');
-      
+      saveTextEvent();
   }
 
 
@@ -292,7 +297,7 @@
       workingObj: workingObj,
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
-      editTodo: editTodo,
+      
       
   };
 
