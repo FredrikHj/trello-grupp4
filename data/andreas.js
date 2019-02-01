@@ -1,4 +1,4 @@
-
+// Fixa så att man klickar på rätt sak när man trycker på krysset.
 import elin from './elin.js';
 
 let textField = document.querySelector('.popup__textField')
@@ -121,17 +121,53 @@ function saveContentInPopup(){
 //}
 
 function del(){
-    let deleteX = document.querySelector('.card__headerDiv__deleteButton');
-    deleteX.addEventListener('click', deleteCard);
+    
+    let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
+        
+        for(let i = 0; i < deleteX.length; i++){
+            deleteX[i].addEventListener('click', deleteCard);
+        }
+        
 }
+    
 
 function deleteCard(e){
-    if(e.target.classList === 'card__headerDiv__deleteButton');
-    let deleteX = document.querySelector('.card__headerDiv__deleteButton');
-   
-    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
-    console.log(e.target)
+    console.log(e.target.id)
+    //let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
+    console.log(todoObj.todos)
+        
+        for(let key in todoObj.todos){
+            if(e.target.id === todoObj.todos[key].identifier){
+            todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
+            elin.renderView();  
+
+        }
+         
+        } 
+        for(let key in workingObj.workings){
+            if(e.target.id === workingObj.workings[key].identifier){
+            workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
+            elin.renderView();  
+           
+        }
+         
+        } 
+        for(let key in doneObj.dones){
+            if(e.target.id === doneObj.dones[key].identifier){
+            doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
+            elin.renderView(); 
+            
+        }
+         
+        } 
+
+
 }
+   
+    
+//    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
+//    console.log(e.target)
+
    
 
 function saveText(e){
@@ -163,7 +199,7 @@ function saveText(e){
         console.log(idWorkings);
         console.log(workingObj.workings)
         elin.renderView();
-       
+        del();
         
     }
     if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -174,7 +210,7 @@ function saveText(e){
         console.log(idDone);
         console.log(doneObj.dones)
         elin.renderView();
-        
+        del();
         
     }
 }
@@ -216,6 +252,7 @@ let exportObject = {
     workingObj: workingObj,
     doneObj: doneObj,
     saveContentInPopup: saveContentInPopup,
+    del: del,
     
     
 };

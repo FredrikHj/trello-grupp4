@@ -13,18 +13,14 @@
       //Creating variables
       let titleText = todo.titles;
       let descriptionText = todo.descs;
-        let identifier = todo.identifier;
-        
+      let identifier = todo.identifier;
+        console.log(identifier);
 
       //Creating a new div (the card)
       let card = document.createElement('div');
       card.classList.add('card');
       card.style.border = '1px solid black';
-      // Andreas har pillat
-      card.setAttribute('identifier', identifier);
-      // Andreas har slutat pilla
       element.appendChild(card);
-      console.log(card)
 
       //Creating a container for the header
       let header = document.createElement('div');
@@ -40,6 +36,7 @@
       //Adding delete button
       let deleteButton = document.createElement('button');
       deleteButton.classList.add('card__headerDiv__deleteButton');
+        deleteButton.setAttribute('id', identifier);
       header.appendChild(deleteButton);
       let icon = document.createElement('i');
       icon.classList.add('material-icons');
@@ -83,12 +80,15 @@
     renderCards(todoContainer, exportObject$1.todoObj.todos);
     renderCards(workingContainer, exportObject$1.workingObj.workings);
     renderCards(doneContainer, exportObject$1.doneObj.dones);
+    exportObject$1.del();
     }
 
   let exportObject = {
     renderView: renderView,
     renderCards: renderCards,
   };
+
+  // Fixa så att man klickar på rätt sak när man trycker på krysset.
 
   let textField = document.querySelector('.popup__textField');
   let textArea = document.querySelector('.popup__textarea');
@@ -209,17 +209,53 @@
   //}
 
   function del(){
-      let deleteX = document.querySelector('.card__headerDiv__deleteButton');
-      deleteX.addEventListener('click', deleteCard);
+      
+      let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
+          
+          for(let i = 0; i < deleteX.length; i++){
+              deleteX[i].addEventListener('click', deleteCard);
+          }
+          
   }
+      
 
   function deleteCard(e){
-      if(e.target.classList === 'card__headerDiv__deleteButton');
-      let deleteX = document.querySelector('.card__headerDiv__deleteButton');
-     
-      deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
-      console.log(e.target);
+      console.log(e.target.id);
+      //let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
+      console.log(todoObj.todos);
+          
+          for(let key in todoObj.todos){
+              if(e.target.id === todoObj.todos[key].identifier){
+              todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
+              exportObject.renderView();  
+
+          }
+           
+          } 
+          for(let key in workingObj.workings){
+              if(e.target.id === workingObj.workings[key].identifier){
+              workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
+              exportObject.renderView();  
+             
+          }
+           
+          } 
+          for(let key in doneObj.dones){
+              if(e.target.id === doneObj.dones[key].identifier){
+              doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
+              exportObject.renderView(); 
+              
+          }
+           
+          } 
+
+
   }
+     
+      
+  //    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
+  //    console.log(e.target)
+
      
 
   function saveText(e){
@@ -251,7 +287,7 @@
           console.log(idWorkings);
           console.log(workingObj.workings);
           exportObject.renderView();
-         
+          del();
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
@@ -262,7 +298,7 @@
           console.log(idDone);
           console.log(doneObj.dones);
           exportObject.renderView();
-          
+          del();
           
       }
   }
@@ -304,6 +340,7 @@
       workingObj: workingObj,
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
+      del: del,
       
       
   };

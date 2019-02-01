@@ -13,7 +13,7 @@ function renderCards(element, array) {
     //Creating variables
     let titleText = todo.titles;
     let descriptionText = todo.descs;
-      let identifier = todo.identifier;
+    let identifier = todo.identifier;
       console.log(identifier)
 
     //Creating a new div (the card)
@@ -36,6 +36,7 @@ function renderCards(element, array) {
     //Adding delete button
     let deleteButton = document.createElement('button');
     deleteButton.classList.add('card__headerDiv__deleteButton');
+      deleteButton.setAttribute('id', identifier);
     header.appendChild(deleteButton);
     let icon = document.createElement('i');
     icon.classList.add('material-icons');
@@ -79,6 +80,7 @@ function renderView() {
   renderCards(todoContainer, andreas.todoObj.todos);
   renderCards(workingContainer, andreas.workingObj.workings);
   renderCards(doneContainer, andreas.doneObj.dones);
+  andreas.del();
   }
 
 let exportObject = {
