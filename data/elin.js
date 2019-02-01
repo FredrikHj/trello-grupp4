@@ -1,42 +1,24 @@
 
 import andreas from './andreas.js';
 
-function renderView() {
-  //Finding elements
-  let todoContainer = document.querySelector('.boards__iteamsContainerTodo');
-  let workingContainer = document.querySelector('.boards__iteamsContainerWorking');
-  let doneContainer = document.querySelector('.boards__iteamsContainerDone');
+function renderCards(element, array) {
 
-  console.log('This should be the array with all todos');
-  console.log(andreas.todoObj.todos);
+  //Clear container
+  while(element.firstChild){
+    element.removeChild(element.firstChild);
+  }
 
-  //Creating test object
-  let testObject = {
-    todos: [
-      {
-        titles: 'titel',
-        descs: 'beskrivning'
-      }, {
-        titles: 'do cleaning-up',
-        descs: ''
-      }, {
-        titles: 'do shopping',
-        descs: 'boy milk and eggs'
-      }
-    ],
-  };
-
-  //Looping through all cards in todo
-  for(let todo of andreas.todoObj.todos) {
+  //Looping through the array with todos/workings/dones
+  for(let todo of array) {
     //Creating variables
     let titleText = todo.titles;
     let descriptionText = todo.descs;
 
-    //Creating a new div
+    //Creating a new div (the card)
     let card = document.createElement('div');
     card.classList.add('card');
     card.style.border = '1px solid black';
-    todoContainer.appendChild(card);
+    element.appendChild(card);
 
     //Creating a container for the header
     let header = document.createElement('div');
@@ -69,6 +51,7 @@ function renderView() {
     //Adding a container with the arrows
     let bottomDiv = document.createElement('div');
     bottomDiv.classList.add('card__bottomDiv');
+    card.appendChild(bottomDiv);
 
     // -- Left arrow --
     let leftArrow = document.createElement('i');
@@ -81,16 +64,24 @@ function renderView() {
     rightArrow.classList.add('card__bottomDiv__rightArrow', 'material-icons');
     rightArrow.textContent = 'arrow_forward';
     bottomDiv.appendChild(rightArrow);
-
-    card.appendChild(bottomDiv);
-  }
+}
 }
 
-// renderView();
+function renderView() {
+  //Finding elements
+  let todoContainer = document.querySelector('.boards__iteamsContainerTodo');
+  let workingContainer = document.querySelector('.boards__iteamsContainerWorking');
+  let doneContainer = document.querySelector('.boards__iteamsContainerDone');
 
+  //Calling on renderCards for each column
+  renderCards(todoContainer, andreas.todoObj.todos);
+  renderCards(workingContainer, andreas.workingObj.workings);
+  renderCards(doneContainer, andreas.doneObj.dones);
+  }
 
 let exportObject = {
   renderView: renderView,
+  renderCards: renderCards,
 };
 
 export default exportObject;
