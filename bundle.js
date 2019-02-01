@@ -13,12 +13,18 @@
       //Creating variables
       let titleText = todo.titles;
       let descriptionText = todo.descs;
+        let identifier = todo.identifier;
+        
 
       //Creating a new div (the card)
       let card = document.createElement('div');
       card.classList.add('card');
       card.style.border = '1px solid black';
+      // Andreas har pillat
+      card.setAttribute('identifier', identifier);
+      // Andreas har slutat pilla
       element.appendChild(card);
+      console.log(card)
 
       //Creating a container for the header
       let header = document.createElement('div');
@@ -139,7 +145,7 @@
   function saveTextEvent(){
       
       saveButton.addEventListener('click', saveText);
-
+      
       
   }
 
@@ -274,6 +280,7 @@
 
 
   function abortPopup(e){
+
 
       popupWindow = document.querySelector('.popup-container');
       popupWindow.classList.add('displayNone');

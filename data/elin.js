@@ -13,6 +13,8 @@ function renderCards(element, array) {
     //Creating variables
     let titleText = todo.titles;
     let descriptionText = todo.descs;
+      let identifier = todo.identifier;
+      console.log(identifier)
 
     //Creating a new div (the card)
     let card = document.createElement('div');

@@ -56,7 +56,7 @@ let doneCounter = 1;
 function saveTextEvent(){
     
     saveButton.addEventListener('click', saveText);
-
+    
     
 }
 
@@ -192,6 +192,7 @@ function showTextArea(e){
 
 
 function abortPopup(e){
+
 
     popupWindow = document.querySelector('.popup-container');
     popupWindow.classList.add('displayNone');
