@@ -267,7 +267,7 @@
       popupWindow.classList.add('displayNone');
       popupWindow.classList.remove('displayBlock');
       textArea.value = '';
-      popupPtag.textContent = 'Lägg till en beskrivning';
+      popupPtag.textContent = 'Lägg till beskrivning';
       textArea.classList.add('displayNone');
       textArea.classList.remove('displayBlock');
       popupPtag.classList.add('displayBlock');
