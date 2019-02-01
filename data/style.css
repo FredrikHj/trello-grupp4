@@ -1,10 +1,11 @@
 :root{
-  --color-lightpurple--: rgb(137,96,158);
+  --color-lightpurple--: rgb(133, 97, 152);
   --color-black--: rgb(0,0,0);
   --color-white--: rgb(255,255,255);
   --color-lightgrey--: rgb(222, 222, 222);
   --color-less-lighter-grey--: rgb(192,192,192);
   --color-darkgrey--: rgb(169,169,169);
+    --font-family--: 'Indie Flower', cursive;
 }
 /* CSS för vårt grupparbete */
 body{
@@ -16,32 +17,67 @@ body{
 }
 main{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
 }
+h1{
+    font-family: var(--font-family--);
+}
+
+.boards__container{
+    height: 100%;
+    width: 300px;;
+}
+
 .boards{
-  width: 30%;
-  min-height: 100px;
+ 
   background-color: var(--color-lightgrey--);
+  border-radius: 5px;
+    border: 1px solid #8d8d8d;
+box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+    
+    
+    
 }
 .boards__iteamHead{
+    font-family: var(--font-family--);
   margin-top: 1%;
   margin-left: 1%;
   font-size: 1.5em;
   font-weight: bold;
+    padding: 5px;
 }
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
-  background-color: white;
-}
-.boards__addCardBtn{
-  position: relative;
-  bottom: -18%;
-  left: 0%;
-  padding-left: 4%;
-  width: 96%;
-  height: 5%;
-  display: flex;
   background-color: var(--color-lightgrey--);
+   
+    border-radius: 5px;
+    margin: 10 10;
+    
+    
+}
+
+.text__addCardBtn{
+    font-family: cursive;
+    position: relative;
+    top: 8px;
+    left: 20px;
+    font-family: var(--font-family--);
+}
+
+.card{
+    background-color: white ;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+    border-radius: 4px;
+}
+
+
+.boards__addCardBtn{
+    position: relative;
+    height: 30px;
+    display: flex;
+    background-color: var(--color-lightgrey--);
+    border-radius: 0px 0px 5px 5px;
 }
 .boards__addCardBtn:hover{
   background-color: var(--color-less-lighter-grey--);
@@ -80,9 +116,13 @@ main{
 
 }
 
+.popup__todaysDate{
+    font-family: var(--font-family--);
+}
 
 
 .popup__textField{
+    font-family: var(--font-family--);
   position: relative;
   width: 300px;
   height: 40px;
@@ -121,7 +161,7 @@ main{
 }
 
 .popup__descriptionHeader{
-
+    font-family: var(--font-family--);
   margin: 10px;
 
 }
@@ -139,6 +179,7 @@ main{
   font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 4px;
+    font-family: var(--font-family--);
 
 
 }
@@ -150,7 +191,7 @@ main{
 }
 
 .popup__saveButton{
-
+font-family: var(--font-family--);
   margin-right: 15px;
   background-color: red;
   border-radius: 5px;
@@ -159,6 +200,9 @@ main{
   font-size: 1rem;
   outline: none;
 
+}
+.popup__pTag{
+    font-family: var(--font-family--);
 }
 
 .popup__saveButton:hover{
@@ -265,6 +309,7 @@ main{
   position: relative;
   font-size: 1rem;
   margin: 30px 30px 30px 50px;
+    
 }
 
 pre{
@@ -299,3 +344,6 @@ pre{
   .card__bottomDiv {
     display: flex;
   }
+
+
+
