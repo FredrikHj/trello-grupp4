@@ -1,10 +1,11 @@
 :root{
-  --color-lightpurple--: rgb(137,96,158);
+  --color-lightpurple--: rgb(133, 97, 152);
   --color-black--: rgb(0,0,0);
   --color-white--: rgb(255,255,255);
   --color-lightgrey--: rgb(222, 222, 222);
   --color-less-lighter-grey--: rgb(192,192,192);
   --color-darkgrey--: rgb(169,169,169);
+    --font-family--: 'Indie Flower', cursive;
 }
 /* CSS för vårt grupparbete */
 body{
@@ -17,6 +18,9 @@ body{
 main{
   display: flex;
   justify-content: space-around;
+}
+h1{
+    font-family: var(--font-family--);
 }
 
 .boards__container{
@@ -35,6 +39,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
     
 }
 .boards__iteamHead{
+    font-family: var(--font-family--);
   margin-top: 1%;
   margin-left: 1%;
   font-size: 1.5em;
@@ -51,10 +56,11 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 }
 
 .text__addCardBtn{
+    font-family: cursive;
     position: relative;
     top: 8px;
     left: 20px;
-    
+    font-family: var(--font-family--);
 }
 
 .card{
@@ -110,9 +116,13 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 
 }
 
+.popup__todaysDate{
+    font-family: var(--font-family--);
+}
 
 
 .popup__textField{
+    font-family: var(--font-family--);
   position: relative;
   width: 300px;
   height: 40px;
@@ -151,7 +161,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 }
 
 .popup__descriptionHeader{
-
+    font-family: var(--font-family--);
   margin: 10px;
 
 }
@@ -169,6 +179,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 4px;
+    font-family: var(--font-family--);
 
 
 }
@@ -180,7 +191,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 }
 
 .popup__saveButton{
-
+font-family: var(--font-family--);
   margin-right: 15px;
   background-color: red;
   border-radius: 5px;
@@ -189,6 +200,9 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   font-size: 1rem;
   outline: none;
 
+}
+.popup__pTag{
+    font-family: var(--font-family--);
 }
 
 .popup__saveButton:hover{
@@ -295,6 +309,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   position: relative;
   font-size: 1rem;
   margin: 30px 30px 30px 50px;
+    
 }
 
 pre{
