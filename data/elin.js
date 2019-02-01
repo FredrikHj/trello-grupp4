@@ -1,21 +1,14 @@
 
-<<<<<<< Updated upstream
 import andreas from './andreas.js';
 
-=======
->>>>>>> Stashed changes
 function renderView() {
   //Finding elements
   let todoContainer = document.querySelector('.boards__iteamsContainerTodo');
   let workingContainer = document.querySelector('.boards__iteamsContainerWorking');
   let doneContainer = document.querySelector('.boards__iteamsContainerDone');
 
-<<<<<<< Updated upstream
   console.log('This should be the array with all todos');
   console.log(andreas.todoObj.todos);
-=======
-  // console.log(todoObj.todos); //This should be an array with all todos
->>>>>>> Stashed changes
 
   //Creating test object
   let testObject = {
@@ -34,7 +27,6 @@ function renderView() {
   };
 
   //Looping through all cards in todo
-<<<<<<< Updated upstream
   for(let todo of andreas.todoObj.todos) {
     //Creating variables
     let titleText = todo.titles;
@@ -49,23 +41,10 @@ function renderView() {
     //Creating a container for the header
     let header = document.createElement('div');
     header.classList.add('card__headerDiv');
-=======
-  for(let todo of testObject.todos) {
-    //Creating a new div
-    let card = document.createElement('div');
-    todoContainer.appendChild(card);
-    card.style.border = '1px solid black';
-    card.style.width = '200px';
-    card.style.height = '200px';
-
-    //Creating a container for the header
-    let header = document.createElement('div');
->>>>>>> Stashed changes
     card.appendChild(header);
 
     //Adding title
     let title = document.createElement('p');
-<<<<<<< Updated upstream
     title.textContent = titleText;
     title.classList.add('card__headerDiv__title');
     header.appendChild(title);
@@ -108,25 +87,6 @@ function renderView() {
 }
 
 // renderView();
-=======
-    title.textContent = todo.titles;
-    header.appendChild(title);
-
-    //Adding button
-    let deleteButton = document.createElement('button');
-    header.appendChild(deleteButton);
-  }
-}
-
-renderView();
-
-
-
-
-
-
-
->>>>>>> Stashed changes
 
 
 let exportObject = {
