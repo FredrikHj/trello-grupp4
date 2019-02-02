@@ -9,13 +9,15 @@ let getPopup = document.querySelector('.popup-container');
 
 addIteam();
 function addIteam(){
+  
   andreas.abortText();
   andreas.saveTextEvent();
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
     getTargetBtn.addEventListener('click', function(e){
-      
+      let getCardsArrow = document.querySelector('.card__bottomDiv__rightArrow');
+        console.log(getCardsArrow)
       let saveButton = document.querySelector('.popup__saveButton')
       console.log(saveButton)
       if(e.target.classList[1] === 'boards__addCardBtnTodo'){

@@ -22,6 +22,9 @@ main{
 h1{
     font-family: var(--font-family--);
 }
+i{
+  pointer-events: none;
+}
 
 .boards__container{
     height: 100%;
@@ -339,11 +342,11 @@ pre{
       text-transform: capitalize;
     }
 
-    .card__headerDiv__deleteButton{}
 
   .card__bottomDiv {
     display: flex;
   }
 
+  
 
 

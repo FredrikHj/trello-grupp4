@@ -278,6 +278,7 @@
           console.log(todoObj.todos);
           exportObject.renderView();
           del();
+          
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
           idWorkings = 'Workings: ' + workingsCounter;
@@ -353,13 +354,15 @@
 
   addIteam();
   function addIteam(){
+    
     exportObject$1.abortText();
     exportObject$1.saveTextEvent();
     let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
     for (let i = 0; i < getListenerBtn.length; i++) {
       let getTargetBtn = getListenerBtn[i];
       getTargetBtn.addEventListener('click', function(e){
-        
+        let getCardsArrow = document.querySelector('.card__bottomDiv__rightArrow');
+          console.log(getCardsArrow);
         let saveButton = document.querySelector('.popup__saveButton');
         console.log(saveButton);
         if(e.target.classList[1] === 'boards__addCardBtnTodo'){

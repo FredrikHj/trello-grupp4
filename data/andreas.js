@@ -190,6 +190,7 @@ function saveText(e){
         console.log(todoObj.todos)
         elin.renderView();
         del();
+        
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
         idWorkings = 'Workings: ' + workingsCounter;
