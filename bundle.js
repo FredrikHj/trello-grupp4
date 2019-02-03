@@ -58,15 +58,21 @@
 
       // -- Left arrow --
       let leftArrow = document.createElement('i');
-      leftArrow.classList.add('card__bottomDiv__leftArrow', 'material-icons');
+      let getBtnToLeftArrow = document.createElement('button');
+      getBtnToLeftArrow.classList.add('card__bottomDiv__leftArrow');
+      leftArrow.classList.add('material-icons');
       leftArrow.textContent = 'arrow_back';
-      bottomDiv.appendChild(leftArrow);
+      getBtnToLeftArrow.appendChild(leftArrow);
+      bottomDiv.appendChild(getBtnToLeftArrow);
 
       // -- Right arrow --
       let rightArrow = document.createElement('i');
-      rightArrow.classList.add('card__bottomDiv__rightArrow', 'material-icons');
+      let getBtnToRightArrow = document.createElement('button');
+      getBtnToRightArrow.classList.add('card__bottomDiv__rightArrow');
+      rightArrow.classList.add('material-icons');
       rightArrow.textContent = 'arrow_forward';
-      bottomDiv.appendChild(rightArrow);
+      getBtnToRightArrow.appendChild(rightArrow);
+      bottomDiv.appendChild(getBtnToRightArrow);
   }
   }
 
@@ -116,9 +122,9 @@
                   identifier: identifier
               });
           }
-          
+
       };
-      
+
       let workingObj = {
           workings: [],
           addWorkings: function(title, desc, identifier){
@@ -129,7 +135,7 @@
               });
           }
       };
-      
+
       let doneObj = {
           dones: [],
           addDones: function(title, desc, identifier){
@@ -143,22 +149,22 @@
 
 
   function saveTextEvent(){
-      
+
       saveButton.addEventListener('click', saveText);
-      
-      
+
+
   }
 
   function abortText(){
-       
-      
+
+
       for(let i = 0; i < abortButtons.length; i++){
           abortButtons[i].addEventListener('click', abortPopup);
-          
+
       }
       showArea();
-      
-     
+
+
   }
 
   function showArea(){
@@ -188,7 +194,7 @@
       textArea.classList.remove('displayBlock');
       popupPtag.classList.add('displayBlock');
       popupPtag.classList.remove('displayNone');
-      
+
 
   }
   // edit under konstruktion
@@ -197,66 +203,66 @@
   //    for(let i = 0; i < card.length; i++){
   //        card[i].addEventListener('click', edit)
   //    }
-  //    
+  //
   //}
   //
   //function edit(e){
   //    console.log(e.target);
   //    popupWindow.classList.remove('displayNone');
   //    popupWindow.classList.add('displayBlock');
-  //    
-  //    
+  //
+  //
   //}
 
   function del(){
-      
+
       let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
-          
+
           for(let i = 0; i < deleteX.length; i++){
               deleteX[i].addEventListener('click', deleteCard);
           }
-          
+
   }
-      
+
 
   function deleteCard(e){
       console.log(e.target.id);
       //let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
       console.log(todoObj.todos);
-          
+
           for(let key in todoObj.todos){
               if(e.target.id === todoObj.todos[key].identifier){
               todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-              exportObject.renderView();  
+              exportObject.renderView();
 
           }
-           
-          } 
+
+          }
           for(let key in workingObj.workings){
               if(e.target.id === workingObj.workings[key].identifier){
               workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-              exportObject.renderView();  
-             
+              exportObject.renderView();
+
           }
-           
-          } 
+
+          }
           for(let key in doneObj.dones){
               if(e.target.id === doneObj.dones[key].identifier){
               doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-              exportObject.renderView(); 
-              
+              exportObject.renderView();
+
           }
-           
-          } 
+
+          }
 
 
   }
-     
-      
+
+
   //    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
   //    console.log(e.target)
 
-     
+
 
   function saveText(e){
       saveButton.removeEventListener('click', saveText);
@@ -265,10 +271,10 @@
       textFromTextField = textField.value;
       textFromTextArea = textArea.value;
       textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
-      
-      
-      
-      
+
+
+
+
       if(eventTarget.classList[1] === 'popup__saveButton--todo'){
           idTodo = 'Todo: ' + todoCounter;
           todoCounter++;
@@ -278,7 +284,7 @@
           console.log(todoObj.todos);
           exportObject.renderView();
           del();
-          
+
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
           idWorkings = 'Workings: ' + workingsCounter;
@@ -289,7 +295,7 @@
           console.log(workingObj.workings);
           exportObject.renderView();
           del();
-          
+
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
           idDone = 'Done: ' + doneCounter;
@@ -300,9 +306,36 @@
           console.log(doneObj.dones);
           exportObject.renderView();
           del();
-          
+
       }
+      //Starting listen at the movements arrow´s
+      findCreatedArrows ();
   }
+  //Starting listen at the movements arrow´s
+    function findCreatedArrows () {
+      // if Arrow class is find perferm else stop
+      let getLeftArrow = document.querySelectorAll('.card__bottomDiv button');
+      for (let i = 0; i < getLeftArrow.length; i++) {
+        let targetArrow = getLeftArrow[i];
+        targetArrow.addEventListener('click', function (e) {
+          let targetArrowClass = e.target.className;
+          if (targetArrowClass === 'card__bottomDiv__leftArrow') {
+            console.log('Vänster');
+          }
+          if (targetArrowClass === 'card__bottomDiv__rightArrow') {
+            console.log('Höger');
+          }
+        });
+      }
+    }
+    //   while ( !== null) {
+    //       console.log('Is not null!');
+    //   }
+    // }
+    // let getCardContainer = document.querySelector('.card__bottomDiv__leftArrow');
+    // getCardContainer.addEventListener('click', function () {
+    //   console.log('efwf');
+    // });
 
 
   function showTextArea(e){
@@ -312,7 +345,7 @@
       textArea = document.querySelector('.popup__textarea');
       textArea.classList.add('displayBlock');
       textArea.classList.remove('displayNone');
-      
+
   }
 
 
@@ -342,8 +375,8 @@
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
       del: del,
-      
-      
+
+
   };
 
   // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
@@ -426,11 +459,6 @@
 
       });
     }
-
-    moveTodos();
-  }
-  function moveTodos () {
-  console.log('vfd');
   }
 
 }());

@@ -88,9 +88,4 @@ function addIteam(){
 
     });
   }
-
-  moveTodos();
-}
-function moveTodos () {
-console.log('vfd');
 }

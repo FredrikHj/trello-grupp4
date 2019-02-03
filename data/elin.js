@@ -58,15 +58,21 @@ function renderCards(element, array) {
 
     // -- Left arrow --
     let leftArrow = document.createElement('i');
-    leftArrow.classList.add('card__bottomDiv__leftArrow', 'material-icons');
+    let getBtnToLeftArrow = document.createElement('button');
+    getBtnToLeftArrow.classList.add('card__bottomDiv__leftArrow');
+    leftArrow.classList.add('material-icons');
     leftArrow.textContent = 'arrow_back';
-    bottomDiv.appendChild(leftArrow);
+    getBtnToLeftArrow.appendChild(leftArrow);
+    bottomDiv.appendChild(getBtnToLeftArrow);
 
     // -- Right arrow --
     let rightArrow = document.createElement('i');
-    rightArrow.classList.add('card__bottomDiv__rightArrow', 'material-icons');
+    let getBtnToRightArrow = document.createElement('button');
+    getBtnToRightArrow.classList.add('card__bottomDiv__rightArrow');
+    rightArrow.classList.add('material-icons');
     rightArrow.textContent = 'arrow_forward';
-    bottomDiv.appendChild(rightArrow);
+    getBtnToRightArrow.appendChild(rightArrow);
+    bottomDiv.appendChild(getBtnToRightArrow);
 }
 }
 
