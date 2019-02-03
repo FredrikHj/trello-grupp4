@@ -524,10 +524,9 @@
   let getPopup = document.querySelector('.popup-container');
 
   // Add cards
-
   addIteam();
   function addIteam(){
-    
+
     exportObject$1.abortText();
     exportObject$1.saveTextEvent();
    
@@ -535,8 +534,7 @@
     for (let i = 0; i < getListenerBtn.length; i++) {
       let getTargetBtn = getListenerBtn[i];
       getTargetBtn.addEventListener('click', function(e){
-        let getCardsArrow = document.querySelector('.card__bottomDiv__rightArrow');
-          console.log(getCardsArrow);
+
         let saveButton = document.querySelector('.popup__saveButton');
         console.log(saveButton);
         if(e.target.classList[1] === 'boards__addCardBtnTodo'){
@@ -554,7 +552,7 @@
 
         console.log(e.target);
         getPopup.classList.add('displayBlock');
-        
+
       // Datum och tid --------------------------------------------------------------------------------------------
       let getDatePlace = document.querySelector('.popup__todaysDate');
 
@@ -599,10 +597,14 @@
       // Titel i popupen töms
       let getTitelPopup = document.querySelector('.popup__textField');
       getTitelPopup.value = '';
-      
+
       });
-      
     }
+
+    moveTodos();
+  }
+  function moveTodos () {
+  console.log('vfd');
   }
 
 }());
