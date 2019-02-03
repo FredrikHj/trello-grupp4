@@ -223,11 +223,12 @@
       textArea.value = '';
       //popupPtag.textContent = '';
       let eventTarget = e.target;
-      let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+      
       
 
       for(let key in todoObj.todos){
           console.log(e.target);
+          let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
           tempIdTodo = selCardDiv.getAttribute('id');
           saveButton.setAttribute('id', tempIdTodo);
           selCardDiv.setAttribute('id', tempIdTodo);

@@ -136,10 +136,11 @@ function editCard(e){
     //popupPtag.textContent = '';
     let eventTarget = e.target;
     let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
-    
+    console.log(selCardDiv)
 
     for(let key in todoObj.todos){
         console.log(e.target)
+        
         tempIdTodo = selCardDiv.getAttribute('id');
         saveButton.setAttribute('id', tempIdTodo)
         selCardDiv.setAttribute('id', tempIdTodo);
