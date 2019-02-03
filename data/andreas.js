@@ -122,7 +122,7 @@ function del(){
 }
 
 function edit(){
-    let selHeaderDiv = document.querySelectorAll('.card__headerDiv');
+    let selHeaderDiv = document.querySelectorAll('.card');
 
     for(let i = 0; i < selHeaderDiv.length; i++){
         selHeaderDiv[i].addEventListener('click', editCard);
