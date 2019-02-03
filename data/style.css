@@ -32,14 +32,14 @@ i{
 }
 
 .boards{
- 
+
   background-color: var(--color-lightgrey--);
   border-radius: 5px;
     border: 1px solid #8d8d8d;
 box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
-    
-    
-    
+
+
+
 }
 .boards__iteamHead{
     font-family: var(--font-family--);
@@ -51,11 +51,11 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 }
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
   background-color: var(--color-lightgrey--);
-   
+
     border-radius: 5px;
     margin: 10 10;
-    
-    
+
+
 }
 
 .text__addCardBtn{
@@ -312,7 +312,7 @@ font-family: var(--font-family--);
   position: relative;
   font-size: 1rem;
   margin: 30px 30px 30px 50px;
-    
+
 }
 
 pre{
@@ -345,8 +345,6 @@ pre{
 
   .card__bottomDiv {
     display: flex;
+    cursor: move;
+    z-index: 1;
   }
-
-  
-
-
