@@ -40,6 +40,7 @@
       header.appendChild(deleteButton);
       let icon = document.createElement('i');
       icon.classList.add('material-icons');
+      icon.classList.add('material-icons__delete');
       icon.textContent = 'clear';
       deleteButton.appendChild(icon);
 
@@ -202,6 +203,7 @@
 
   function del(){
       
+      
       let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
           
           for(let i = 0; i < deleteX.length; i++){
@@ -223,12 +225,12 @@
       textArea.value = '';
       //popupPtag.textContent = '';
       let eventTarget = e.target;
-      
-      
+      let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+      console.log(selCardDiv);
 
       for(let key in todoObj.todos){
           console.log(e.target);
-          let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+          
           tempIdTodo = selCardDiv.getAttribute('id');
           saveButton.setAttribute('id', tempIdTodo);
           selCardDiv.setAttribute('id', tempIdTodo);
@@ -334,13 +336,14 @@
       
 
   function deleteCard(e){
-      
+
       
           
           for(let key in todoObj.todos){
               if(e.target.id === todoObj.todos[key].identifier){
               todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-              exportObject.renderView();  
+              exportObject.renderView(); 
+               
 
           }
            
@@ -362,7 +365,7 @@
            
           } 
 
-
+          
   }
      
 

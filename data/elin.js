@@ -40,6 +40,7 @@ function renderCards(element, array) {
     header.appendChild(deleteButton);
     let icon = document.createElement('i');
     icon.classList.add('material-icons');
+    icon.classList.add('material-icons__delete');
     icon.textContent = 'clear';
     deleteButton.appendChild(icon);
 

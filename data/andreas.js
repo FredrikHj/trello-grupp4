@@ -113,6 +113,7 @@ function saveContentInPopup(){
 
 function del(){
     
+    
     let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
         
         for(let i = 0; i < deleteX.length; i++){
@@ -246,13 +247,14 @@ function editCard(e){
     
 
 function deleteCard(e){
-    
+
     
         
         for(let key in todoObj.todos){
             if(e.target.id === todoObj.todos[key].identifier){
             todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-            elin.renderView();  
+            elin.renderView(); 
+             
 
         }
          
@@ -274,7 +276,7 @@ function deleteCard(e){
          
         } 
 
-
+        
 }
    
 
