@@ -22,9 +22,7 @@ main{
 h1{
     font-family: var(--font-family--);
 }
-i{
-  pointer-events: none;
-}
+
 
 .boards__container{
     height: 100%;
@@ -351,3 +349,9 @@ pre{
   .card__bottomDiv__leftArrow material-icons, .card__bottomDiv__rightArrow material-icons{
     z-index: 1;
   }
+
+    /* .card__bottomDiv{
+      pointer-events: none;
+    } */
+
+  

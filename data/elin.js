@@ -14,7 +14,7 @@ function renderCards(element, array) {
     let titleText = todo.titles;
     let descriptionText = todo.descs;
     let identifier = todo.identifier;
-      console.log(identifier)
+    
 
     //Creating a new div (the card)
     let card = document.createElement('div');
@@ -40,6 +40,7 @@ function renderCards(element, array) {
     header.appendChild(deleteButton);
     let icon = document.createElement('i');
     icon.classList.add('material-icons');
+    icon.classList.add('material-icons__delete');
     icon.textContent = 'clear';
     deleteButton.appendChild(icon);
 
@@ -87,6 +88,7 @@ function renderView() {
   renderCards(workingContainer, andreas.workingObj.workings);
   renderCards(doneContainer, andreas.doneObj.dones);
   andreas.del();
+  andreas.edit();
   }
 
 let exportObject = {

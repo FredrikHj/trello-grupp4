@@ -11,6 +11,7 @@ function addIteam(){
 
   andreas.abortText();
   andreas.saveTextEvent();
+ 
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
