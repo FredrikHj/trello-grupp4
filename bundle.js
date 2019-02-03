@@ -14,7 +14,7 @@
       let titleText = todo.titles;
       let descriptionText = todo.descs;
       let identifier = todo.identifier;
-        console.log(identifier);
+      
 
       //Creating a new div (the card)
       let card = document.createElement('div');
@@ -81,6 +81,7 @@
     renderCards(workingContainer, exportObject$1.workingObj.workings);
     renderCards(doneContainer, exportObject$1.doneObj.dones);
     exportObject$1.del();
+    exportObject$1.edit();
     }
 
   let exportObject = {
@@ -96,20 +97,26 @@
   let popupPtag = document.querySelector('.popup__pTag');
   let abortButtons = document.querySelectorAll('.popup__close');
   let saveButton = document.querySelector('.popup__saveButton');
+  let saveButtonAll = document.querySelectorAll('.popup__saveButton');
+
 
   let textFromTextField = textField.value;
   let textFromTextArea = textArea.value;
-  let idTodo;
+  let idTodo = '';
   let idWorkings;
   let idDone;
   let todoCounter = 1;
   let workingsCounter = 1;
   let doneCounter = 1;
+  let tempIdTodo = '';
+  let tempIdWorking = '';
+  let tempIdDone = '';
 
 
       let todoObj = {
           todos: [],
           addTodos: function(title, desc, identifier){
+              
               this.todos.push({
                   titles: title,
                   descs: desc,
@@ -191,22 +198,7 @@
       
 
   }
-  // edit under konstruktion
-  //function editTodo(){
-  //    let card = document.querySelectorAll('.card');
-  //    for(let i = 0; i < card.length; i++){
-  //        card[i].addEventListener('click', edit)
-  //    }
-  //    
-  //}
-  //
-  //function edit(e){
-  //    console.log(e.target);
-  //    popupWindow.classList.remove('displayNone');
-  //    popupWindow.classList.add('displayBlock');
-  //    
-  //    
-  //}
+
 
   function del(){
       
@@ -217,12 +209,132 @@
           }
           
   }
+
+  function edit(){
+      let selHeaderDiv = document.querySelectorAll('.card__headerDiv');
+
+      for(let i = 0; i < selHeaderDiv.length; i++){
+          selHeaderDiv[i].addEventListener('click', editCard);
+      }}
+
+  function editCard(e){
+      
+      textField.value = '';
+      textArea.value = '';
+      //popupPtag.textContent = '';
+      let eventTarget = e.target;
+      let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+      
+
+      for(let key in todoObj.todos){
+          console.log(e.target);
+          tempIdTodo = selCardDiv.getAttribute('id');
+          saveButton.setAttribute('id', tempIdTodo);
+          selCardDiv.setAttribute('id', tempIdTodo);
+          console.log(selCardDiv.id);
+
+          for(let i = 0; i < saveButtonAll.length; i++){
+              console.log(saveButtonAll);
+              if(saveButtonAll[i].id.includes('Todo')){
+                  removeClasLists();
+                  saveButtonAll[i].classList.add('popup__saveButton--todo');
+              }
+          }
+          
+         if(selCardDiv.id === todoObj.todos[key].identifier){
+              textField.value = todoObj.todos[key].titles;
+              textArea.value = todoObj.todos[key].descs;
+              popupPtag.textContent = todoObj.todos[key].descs;
+
+              if(popupPtag.textContent === ''){
+                  popupPtag.textContent = 'Lägg till beskrivning';
+              }
+              else{
+                  popupPtag.textContent = todoObj.todos[key].descs;
+              }
+              
+              
+          }
+          
+      }
+      for(let key in workingObj.workings){
+          tempIdWorking = selCardDiv.getAttribute('id');
+          saveButton.setAttribute('id', tempIdWorking);
+          selCardDiv.setAttribute('id', tempIdWorking);
+          
+          console.log(selCardDiv.id);
+
+          for(let i = 0; i < saveButtonAll.length; i++){
+              console.log(saveButtonAll);
+              if(saveButtonAll[i].id.includes('Work')){
+                  removeClasLists();
+                  saveButtonAll[i].classList.add('popup__saveButton--working');
+              }
+          }
+          
+         if(selCardDiv.id === workingObj.workings[key].identifier){
+              textField.value = workingObj.workings[key].titles;
+              textArea.value = workingObj.workings[key].descs;
+              popupPtag.textContent = workingObj.workings[key].descs;
+
+              if(popupPtag.textContent === ''){
+                  popupPtag.textContent = 'Lägg till beskrivning';
+              }
+              else{
+                  popupPtag.textContent = workingObj.workings[key].descs;
+              }
+              
+              
+          }
+          
+      }
+      for(let key in doneObj.dones){
+          tempIdDone = selCardDiv.getAttribute('id');
+          
+          saveButton.setAttribute('id', tempIdDone);
+          selCardDiv.setAttribute('id', tempIdDone);
+          console.log(selCardDiv.id);
+
+          for(let i = 0; i < saveButtonAll.length; i++){
+              console.log(saveButtonAll);
+              if(saveButtonAll[i].id.includes('Done')){
+                  removeClasLists();
+                  saveButtonAll[i].classList.add('popup__saveButton--done');
+              }
+          }
+          
+         if(selCardDiv.id === doneObj.dones[key].identifier){
+              textField.value = doneObj.dones[key].titles;
+              textArea.value = doneObj.dones[key].descs;
+              popupPtag.textContent = doneObj.dones[key].descs;
+
+              if(popupPtag.textContent === ''){
+                  popupPtag.textContent = 'Lägg till beskrivning';
+              }
+              else{
+                  popupPtag.textContent = doneObj.dones[key].descs;
+              }
+              
+              
+          }
+          
+      }
+      
+      // om identifier är tom kör render. om inte kör inte.
+
+      // loopa objekten och kolla om selCarddiv.id === todoObj.todos[key].identifier.
+      // om ja, todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
+
+    
+      popupWindow.classList.add('displayBlock');
+      popupWindow.classList.remove('displayNone');
+      
+  }
       
 
   function deleteCard(e){
-      console.log(e.target.id);
-      //let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
-      console.log(todoObj.todos);
+      
+      
           
           for(let key in todoObj.todos){
               if(e.target.id === todoObj.todos[key].identifier){
@@ -252,54 +364,114 @@
 
   }
      
-      
-  //    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
-  //    console.log(e.target)
 
-     
+
 
   function saveText(e){
+     
       saveButton.removeEventListener('click', saveText);
-      console.log(saveButton);
+      
       let eventTarget = e.target;
       textFromTextField = textField.value;
       textFromTextArea = textArea.value;
       textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
-      
+
       
       
       
       if(eventTarget.classList[1] === 'popup__saveButton--todo'){
-          idTodo = 'Todo: ' + todoCounter;
-          todoCounter++;
-          saveContentInPopup();
-          todoObj.addTodos(textFromTextField, textFromTextArea, idTodo);
-          console.log(idTodo);
-          console.log(todoObj.todos);
-          exportObject.renderView();
-          del();
+          
+          // om den har id/klassen skriv in de nya värdena på nycklarna och stäng ner fönstret
+              
+             
+              if(saveButton.id.length <= 0){
+
+              idTodo = 'Todo: ' + todoCounter;
+              todoCounter++;
+              saveContentInPopup();
+              todoObj.addTodos(textFromTextField, textFromTextArea, idTodo);
+              exportObject.renderView();
+              del();
+              saveButton.id = idTodo;
+              }
+              else{
+                  for(let key in todoObj.todos){
+
+                      if(e.target.id === todoObj.todos[key].identifier){
+                          todoObj.todos[key].titles = textField.value;
+                          todoObj.todos[key].descs = textArea.value;
+                          exportObject.renderView();
+                      }
+
+                      
+                      
+                  }
+                  saveButton.id = tempIdTodo;
+                 
+              }
+               console.log(todoObj.todos);
+           
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
-          idWorkings = 'Workings: ' + workingsCounter;
-          workingsCounter++;
-          saveContentInPopup();
-          workingObj.addWorkings(textFromTextField, textFromTextArea, idWorkings);
+          if(saveButton.id.length <= 0){
+              idWorkings = 'Workings: ' + workingsCounter;
+              workingsCounter++;
+              saveContentInPopup();
+              workingObj.addWorkings(textFromTextField, textFromTextArea, idWorkings);
+              exportObject.renderView();
+              del();
+              saveButton.idWorkings = idWorkings;
+          }
+          else{
+              for(let key in workingObj.workings){
+
+                  if(e.target.id === workingObj.workings[key].identifier){
+                      workingObj.workings[key].titles = textField.value;
+                      workingObj.workings[key].descs = textArea.value;
+                      exportObject.renderView();
+                  }
+
+                  
+                  
+              }
+              saveButton.id = tempIdWorking;
+             
+          }
+          
           console.log(idWorkings);
           console.log(workingObj.workings);
-          exportObject.renderView();
-          del();
+          
           
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
-          idDone = 'Done: ' + doneCounter;
-          doneCounter++;
-          saveContentInPopup();
-          doneObj.addDones(textFromTextField, textFromTextArea, idDone);
-          console.log(idDone);
-          console.log(doneObj.dones);
-          exportObject.renderView();
-          del();
+          if(saveButton.id.length <= 0){
+              idDone = 'Done: ' + doneCounter;
+              doneCounter++;
+              saveContentInPopup();
+              doneObj.addDones(textFromTextField, textFromTextArea, idDone);
+              exportObject.renderView();
+              del();
+              saveButton.idDone = idDone;
+          }
+          else{
+              for(let key in doneObj.dones){
+
+                  if(e.target.id === doneObj.dones[key].identifier){
+                      doneObj.dones[key].titles = textField.value;
+                      doneObj.dones[key].descs = textArea.value;
+                      exportObject.renderView();
+                  }
+
+                  
+                  
+              }
+              saveButton.id = tempIdDone;
+             
+          }
+          
+          
+          
           
       }
   }
@@ -318,7 +490,7 @@
 
   function abortPopup(e){
 
-
+      saveButton.id = '';
       popupWindow = document.querySelector('.popup-container');
       popupWindow.classList.add('displayNone');
       popupWindow.classList.remove('displayBlock');
@@ -342,6 +514,7 @@
       doneObj: doneObj,
       saveContentInPopup: saveContentInPopup,
       del: del,
+      edit: edit,
       
       
   };
@@ -357,6 +530,7 @@
     
     exportObject$1.abortText();
     exportObject$1.saveTextEvent();
+   
     let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
     for (let i = 0; i < getListenerBtn.length; i++) {
       let getTargetBtn = getListenerBtn[i];

@@ -14,7 +14,7 @@ function renderCards(element, array) {
     let titleText = todo.titles;
     let descriptionText = todo.descs;
     let identifier = todo.identifier;
-      console.log(identifier)
+    
 
     //Creating a new div (the card)
     let card = document.createElement('div');
@@ -81,6 +81,7 @@ function renderView() {
   renderCards(workingContainer, andreas.workingObj.workings);
   renderCards(doneContainer, andreas.doneObj.dones);
   andreas.del();
+  andreas.edit();
   }
 
 let exportObject = {
