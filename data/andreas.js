@@ -109,33 +109,11 @@ function saveContentInPopup(){
 
 
 }
-<<<<<<< HEAD
-// edit under konstruktion
-//function editTodo(){
-//    let card = document.querySelectorAll('.card');
-//    for(let i = 0; i < card.length; i++){
-//        card[i].addEventListener('click', edit)
-//    }
-//
-//}
-//
-//function edit(e){
-//    console.log(e.target);
-//    popupWindow.classList.remove('displayNone');
-//    popupWindow.classList.add('displayBlock');
-//
-//
-//}
 
-function del(){
-
-=======
 
 
 function del(){
     
-    
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
     let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
 
         for(let i = 0; i < deleteX.length; i++){
@@ -144,20 +122,6 @@ function del(){
 
 }
 
-<<<<<<< HEAD
-
-function deleteCard(e){
-    console.log(e.target.id)
-    //let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
-    console.log(todoObj.todos)
-
-        for(let key in todoObj.todos){
-            if(e.target.id === todoObj.todos[key].identifier){
-            todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-            elin.renderView();
-
-        }
-=======
 function edit(){
     let selHeaderDiv = document.querySelectorAll('.card');
 
@@ -270,10 +234,7 @@ function editCard(e){
         
     }
     
-    // om identifier är tom kör render. om inte kör inte.
 
-    // loopa objekten och kolla om selCarddiv.id === todoObj.todos[key].identifier.
-    // om ja, todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
 
   
     popupWindow.classList.add('displayBlock');
@@ -291,7 +252,7 @@ function deleteCard(e){
             todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
             elin.renderView(); 
              
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
+
 
         }
         for(let key in workingObj.workings){
@@ -313,16 +274,7 @@ function deleteCard(e){
 
         
 }
-<<<<<<< HEAD
-
-
-//    deleteX.parentNode.parentNode.parentNode.removeChild(deleteX.parentNode.parentNode);
-//    console.log(e.target)
-=======
-   
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
-
-
+}
 
 function saveText(e){
    
@@ -333,23 +285,7 @@ function saveText(e){
     textFromTextArea = textArea.value;
     textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
 
-<<<<<<< HEAD
 
-
-
-    if(eventTarget.classList[1] === 'popup__saveButton--todo'){
-        idTodo = 'Todo: ' + todoCounter;
-        todoCounter++;
-        saveContentInPopup();
-        todoObj.addTodos(textFromTextField, textFromTextArea, idTodo);
-        console.log(idTodo)
-        console.log(todoObj.todos)
-        elin.renderView();
-        del();
-
-=======
-    
-    
     
     if(eventTarget.classList[1] === 'popup__saveButton--todo'){
         
@@ -384,7 +320,7 @@ function saveText(e){
              console.log(todoObj.todos)
          
         
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
+
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
         if(saveButton.id.length <= 0){
@@ -414,22 +350,7 @@ function saveText(e){
         
         console.log(idWorkings);
         console.log(workingObj.workings)
-<<<<<<< HEAD
-        elin.renderView();
-        del();
 
-    }
-    if(eventTarget.classList[1] === 'popup__saveButton--done'){
-        idDone = 'Done: ' + doneCounter;
-        doneCounter++;
-        saveContentInPopup();
-        doneObj.addDones(textFromTextField, textFromTextArea, idDone);
-        console.log(idDone);
-        console.log(doneObj.dones)
-        elin.renderView();
-        del();
-
-=======
         
         
     }
@@ -459,39 +380,11 @@ function saveText(e){
            
         }
         
-        
-        
-        
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
+
     }
-    //Starting listen at the movements arrow´s
-    findCreatedArrows ();
+  
 }
-//Starting listen at the movements arrow´s
-  function findCreatedArrows () {
-    // if Arrow class is find perferm else stop
-    let getLeftArrow = document.querySelectorAll('.card__bottomDiv button');
-    for (let i = 0; i < getLeftArrow.length; i++) {
-      let targetArrow = getLeftArrow[i];
-      targetArrow.addEventListener('click', function (e) {
-        let targetArrowClass = e.target.className;
-        if (targetArrowClass === 'card__bottomDiv__leftArrow') {
-          console.log('Vänster');
-        }
-        if (targetArrowClass === 'card__bottomDiv__rightArrow') {
-          console.log('Höger');
-        }
-      });
-    }
-  }
-  //   while ( !== null) {
-  //       console.log('Is not null!');
-  //   }
-  // }
-  // let getCardContainer = document.querySelector('.card__bottomDiv__leftArrow');
-  // getCardContainer.addEventListener('click', function () {
-  //   console.log('efwf');
-  // });
+
 
 
 function showTextArea(e){
@@ -531,17 +424,9 @@ let exportObject = {
     doneObj: doneObj,
     saveContentInPopup: saveContentInPopup,
     del: del,
-<<<<<<< HEAD
-=======
     edit: edit,
     
     
 };
-
->>>>>>> de76a673d95ab91b66e1312bf46daeff4ddf130c
-
-
-};
-
 
 export default exportObject;
