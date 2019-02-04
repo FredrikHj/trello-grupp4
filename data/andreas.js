@@ -1,5 +1,6 @@
 // Fixa så att man klickar på rätt sak när man trycker på krysset.
 import elin from './elin.js';
+import fredrik from './fredrik.js'
 
 let textField = document.querySelector('.popup__textField')
 let textArea = document.querySelector('.popup__textarea');
@@ -430,3 +431,4 @@ let exportObject = {
 };
 
 export default exportObject;
+
