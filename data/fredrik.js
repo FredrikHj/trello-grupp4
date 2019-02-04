@@ -90,3 +90,25 @@ function addIteam(){
     });
   }
 }
+
+
+
+////// Fredriks funktioner
+
+//Starting listen at the movements arrow´s
+function findCreatedArrows () {
+  // if Arrow class is find perferm else stop
+  let getLeftArrow = document.querySelectorAll('.card__bottomDiv button');
+  for (let i = 0; i < getLeftArrow.length; i++) {
+    let targetArrow = getLeftArrow[i];
+    targetArrow.addEventListener('click', function (e) {
+      let targetArrowClass = e.target.className;
+      if (targetArrowClass === 'card__bottomDiv__leftArrow') {
+        console.log('Vänster');
+      }
+      if (targetArrowClass === 'card__bottomDiv__rightArrow') {
+        console.log('Höger');
+      }
+    });
+  }
+}
