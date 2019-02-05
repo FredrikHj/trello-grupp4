@@ -22,6 +22,11 @@ main{
 h1{
     font-family: var(--font-family--);
 }
+
+button {
+  cursor: pointer;
+}
+
 .card__bottomDiv{
   pointer-events: none;
 }
@@ -29,21 +34,21 @@ h1{
   pointer-events: none;
 } */
 
-
 .boards__container{
     height: 100%;
     width: 300px;;
 }
 
 .boards{
-
-  background-color: var(--color-lightgrey--);
+  /* background-color: var(--color-lightgrey--); */
   border-radius: 5px;
-    border: 1px solid #8d8d8d;
-box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
-
-
-
+  border: 1px solid #8d8d8d;
+  box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+  
+  background-color: #571e17;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  min-height: 400px;
 }
 .boards__iteamHead{
     font-family: var(--font-family--);
@@ -53,13 +58,11 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   font-weight: bold;
     padding: 5px;
 }
+
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
   background-color: var(--color-lightgrey--);
-
     border-radius: 5px;
     margin: 10 10;
-
-
 }
 
 .text__addCardBtn{
@@ -78,7 +81,6 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
     border-radius: 4px;
 }
 
-
 .boards__addCardBtn{
     position: relative;
     height: 30px;
@@ -86,9 +88,11 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
     background-color: var(--color-lightgrey--);
     border-radius: 0px 0px 5px 5px;
 }
+
 .boards__addCardBtn:hover{
   background-color: var(--color-less-lighter-grey--);
 }
+
 .boards__addCardBtn:active{
   background-color: var(--color-darkgrey--);
 }
@@ -97,6 +101,7 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   margin-right: 2%;
   font-size: 1em;
 }
+
 .boards__addCardBtn__addCardText{
   font-size: 1em;
 }
@@ -108,8 +113,8 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   box-shadow: -4px 120px 100px 200px rgba(0,0,0,0.75);
   margin-left: calc(50% - 300px);
 }
-.popup{
 
+.popup{
   width: 600px;
   height: 400px;
   border-radius: 4px;
@@ -120,13 +125,19 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   display: flex;
   width: 100%;
   height: 60px;
-
 }
 
 .popup__todaysDate{
     font-family: var(--font-family--);
 }
 
+.popup__todaysDate{
+  position: relative;
+  margin: 10px;
+  height: 40px;
+  font-size: 12px;
+  line-height: 40px;
+}
 
 .popup__textField{
     font-family: var(--font-family--);
@@ -149,18 +160,6 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   line-height: 60px;
 }
 
-.popup__todaysDate{
-  position: relative;
-  margin: 10px;
-  height: 40px;
-  font-size: 12px;
-  line-height: 40px;
-}
-
-.popup__descriptionFieldContainer{
-
-}
-
 .popup__descriptionIcon{
   float: left;
   padding-left: 10px;
@@ -170,7 +169,6 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 .popup__descriptionHeader{
     font-family: var(--font-family--);
   margin: 10px;
-
 }
 
 .popup__listContainer{
@@ -187,14 +185,11 @@ box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
   line-height: 1.5rem;
   border-radius: 4px;
     font-family: var(--font-family--);
-
-
 }
 
 .popup__saveCloseContainer{
   display: flex;
   margin: 15px 15px 15px 45px;
-
 }
 
 .popup__saveButton{
@@ -206,8 +201,8 @@ font-family: var(--font-family--);
   color: white;
   font-size: 1rem;
   outline: none;
-
 }
+
 .popup__pTag{
     font-family: var(--font-family--);
 }
@@ -260,7 +255,6 @@ font-family: var(--font-family--);
 }
 
 .popup__close:after{
-
   content:'';
   position: absolute;
   display: block;
@@ -275,7 +269,6 @@ font-family: var(--font-family--);
   transform: rotate(-45deg);
   transform-origin: center;
   margin-top: 9px;
-
 }
 
 .popup__close:hover:before, .popup__close:hover:after{
@@ -286,10 +279,7 @@ font-family: var(--font-family--);
   border-top: 2px solid #545454;
 }
 
-
-
-
-
+/* ------- Display none and display flex ---------- */
 .displayNone{
   display: none;
 }
@@ -301,6 +291,7 @@ font-family: var(--font-family--);
 .displayFlex{
   display: flex;
 }
+ /* ----------------------------------------------------- */
 
 .popup__FakeTextDiv{
   position: relative;
@@ -331,7 +322,7 @@ pre{
   background-color: rgb(206, 206, 206);
 }
 
-/* CSS for the cards */
+/* -------------- CSS for the cards ------------------------------ */
 
 .card {
   display: flex;
@@ -346,18 +337,16 @@ pre{
       text-transform: capitalize;
     }
 
-
   .card__bottomDiv {
     display: flex;
     cursor: move;
     border: 2px solid red;
   }
+
   .card__bottomDiv__leftArrow material-icons, .card__bottomDiv__rightArrow material-icons{
     z-index: 1;
   }
 
-    /* .card__bottomDiv{
-      pointer-events: none;
-    } */
-
-  
+  /* .card__bottomDiv{
+    pointer-events: none;
+  } */
