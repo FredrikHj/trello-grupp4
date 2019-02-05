@@ -29,19 +29,13 @@ button {
 .card{
   cursor: pointer;
 }
-.card__descIcon{
+
+
+.card__bottomDiv, .card__headerDiv__deleteButton__icon, .card__descIcon, .card__headerDiv__editButton, .card__headerDiv__title{
   pointer-events: none;
 }
 
-.card__bottomDiv, .card__headerDiv__deleteButton__icon {
-  pointer-events: none;
-}
-/* .material-icons__delete{
-  pointer-events: none;
-} */
-.card__headerDiv__editButton{
-  pointer-events: none;
-}
+
 
 .boards__container{
     height: 100%;
