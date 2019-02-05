@@ -7,20 +7,24 @@
   --color-darkgrey--: rgb(169,169,169);
     --font-family--: 'Indie Flower', cursive;
 }
+
 /* CSS för vårt grupparbete */
 body{
   background-color: var(--color-lightpurple--);
+  font-size: 100%;
 }
+
 .pageheader{
   text-align: center;
   color: var(--color-white--);
+  font-family: var(--font-family--);
+  font-size: 2.0rem;
+  margin-bottom: 1.5rem;
 }
+
 main{
   display: flex;
   justify-content: space-around;
-}
-h1{
-    font-family: var(--font-family--);
 }
 
 button {
@@ -61,17 +65,17 @@ button {
 }
 
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
-  background-color: var(--color-lightgrey--);
-    border-radius: 5px;
     margin: 10 10;
 }
 
 .boards__addCardBtn{
-    position: relative;
-    height: 30px;
-    display: flex;
-    background-color: var(--color-lightgrey--);
-    border-radius: 0px 0px 5px 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-lightgrey--);
+  border-radius: 0px 0px 5px 5px;
 }
 
 .text__addCardBtn{
@@ -97,14 +101,6 @@ button {
 
 .boards__addCardBtn__addCardText{
   font-size: 1em;
-}
-
-.card{
-    background-color: white ;
-    margin: 20px;
-    padding: 20px;
-    box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
-    border-radius: 4px;
 }
 
 .popup-container{
@@ -325,9 +321,20 @@ pre{
 
 /* -------------- CSS for the cards ------------------------------ */
 
-.card {
+.card{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 1em;
+  box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+  border-radius: 4px;
+
+  /* Paper background */
+  background-color: #bd814c;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
 }
 
   .card__headerDiv {
