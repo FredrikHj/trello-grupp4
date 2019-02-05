@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 import andreas from './andreas.js';
 
 function renderCards(element, array) {
@@ -24,10 +25,48 @@ function renderCards(element, array) {
     //Creating a container for the header
     let header = document.createElement('div');
     header.classList.add('card__headerDiv');
+=======
+function renderView() {
+  //Finding elements
+  let todoContainer = document.querySelector('.boards__iteamsContainerTodo');
+  let workingContainer = document.querySelector('.boards__iteamsContainerWorking');
+  let doneContainer = document.querySelector('.boards__iteamsContainerDone');
+
+  // console.log(todoObj.todos); //This should be an array with all todos
+
+  //Creating test object
+  let testObject = {
+    todos: [
+      {
+        titles: 'titel',
+        descs: 'beskrivning'
+      }, {
+        titles: 'do cleaning-up',
+        descs: ''
+      }, {
+        titles: 'do shopping',
+        descs: 'boy milk and eggs'
+      }
+    ],
+  };
+
+  //Looping through all cards in todo
+  for(let todo of testObject.todos) {
+    //Creating a new div
+    let card = document.createElement('div');
+    todoContainer.appendChild(card);
+    card.style.border = '1px solid black';
+    card.style.width = '200px';
+    card.style.height = '200px';
+
+    //Creating a container for the header
+    let header = document.createElement('div');
+>>>>>>> Stashed changes
     card.appendChild(header);
 
     //Adding title
     let title = document.createElement('p');
+<<<<<<< Updated upstream
     title.textContent = titleText;
     title.classList.add('card__headerDiv__title');
     header.appendChild(title);
@@ -104,6 +143,29 @@ function renderView() {
 let exportObject = {
   renderView: renderView,
   renderCards: renderCards,
+=======
+    title.textContent = todo.titles;
+    header.appendChild(title);
+
+    //Adding button
+    let deleteButton = document.createElement('button');
+    header.appendChild(deleteButton);
+  }
+}
+
+renderView();
+
+
+
+
+
+
+
+
+
+let exportObject = {
+  renderView: renderView,
+>>>>>>> Stashed changes
 };
 
 export default exportObject;
