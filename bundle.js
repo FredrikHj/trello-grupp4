@@ -15,7 +15,6 @@
       let descriptionText = todo.descs;
       let identifier = todo.identifier;
 
-
       //Creating a new div (the card)
       let card = document.createElement('div');
       card.classList.add('card');
