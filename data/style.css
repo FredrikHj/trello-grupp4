@@ -18,7 +18,7 @@ body{
   text-align: center;
   color: var(--color-white--);
   font-family: var(--font-family--);
-  font-size: 2.0rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -47,7 +47,7 @@ button {
 }
 
 .boards{
-  position: relative;
+  /* position: relative; */
   min-height: 400px;
 
   /* Woody background */
@@ -59,12 +59,13 @@ button {
 }
 
 .boards__iteamHead{
-    font-family: var(--font-family--);
-  margin-top: 1%;
-  margin-left: 1%;
-  font-size: 1.5em;
+  font-family: var(--font-family--);
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding: 5px;
+  font-size: 2.0rem;
   font-weight: bold;
-    padding: 5px;
+  text-align: center;
 }
 
 .boards__iteamsContainerTodo, .boards__iteamsContainerWorking, .boards__iteamsContainerDone{
@@ -72,18 +73,16 @@ button {
 }
 
 .boards__addCardBtn{
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  display: block;
   width: 100%;
   height: 30px;
+  margin-bottom: 0;
   background-color: var(--color-lightgrey--);
   border-radius: 0px 0px 5px 5px;
 }
 
 .text__addCardBtn{
     font-family: cursive;
-    position: relative;
     top: 8px;
     left: 20px;
     font-family: var(--font-family--);
@@ -342,10 +341,25 @@ pre{
 
   .card__headerDiv {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
   }
 
     .card__headerDiv__title{
+      margin: 0;
+      font-size: 1.2rem;
       text-transform: capitalize;
+    }
+
+    .card__headerDiv__deleteButton {
+      height: 22px;
+      width: 22px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card__headerDiv__deleteButton__icon {
+      font-size: 1.2rem;
     }
 
   .card__bottomDiv {

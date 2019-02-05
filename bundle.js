@@ -32,16 +32,16 @@
       title.classList.add('card__headerDiv__title');
       header.appendChild(title);
 
-      //Adding edit button
-      let editButton = document.createElement('button');
-      editButton.classList.add('card__headerDiv__editButton');
-      editButton.setAttribute('id', identifier);
-      header.appendChild(editButton);
-      let editIcon = document.createElement('i');
-      editIcon.classList.add('material-icons');
-      editIcon.classList.add('card__headerDiv__editButton__icon');
-      editIcon.textContent = 'edit';
-      editButton.appendChild(editIcon);
+      // //Adding edit button
+      // let editButton = document.createElement('button');
+      // editButton.classList.add('card__headerDiv__editButton');
+      // editButton.setAttribute('id', identifier);
+      // header.appendChild(editButton);
+      // let editIcon = document.createElement('i');
+      // editIcon.classList.add('material-icons');
+      // editIcon.classList.add('card__headerDiv__editButton__icon');
+      // editIcon.textContent = 'edit';
+      // editButton.appendChild(editIcon);
 
       //Adding delete button
       let deleteButton = document.createElement('button');
