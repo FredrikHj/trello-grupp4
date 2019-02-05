@@ -40,16 +40,17 @@ button {
 }
 
 .boards{
-  /* background-color: var(--color-lightgrey--); */
-  border-radius: 5px;
-  border: 1px solid #8d8d8d;
-  box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
-  
+  position: relative;
+  min-height: 400px;
+
+  /* Woody background */
   background-color: #571e17;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  min-height: 400px;
+
+  border-radius: 5px;
+  box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
 }
+
 .boards__iteamHead{
     font-family: var(--font-family--);
   margin-top: 1%;
@@ -65,28 +66,20 @@ button {
     margin: 10 10;
 }
 
-.text__addCardBtn{
-    font-family: cursive;
-    position: relative;
-    top: 8px;
-    left: 20px;
-    font-family: var(--font-family--);
-}
-
-.card{
-    background-color: white ;
-    margin: 20px;
-    padding: 20px;
-    box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
-    border-radius: 4px;
-}
-
 .boards__addCardBtn{
     position: relative;
     height: 30px;
     display: flex;
     background-color: var(--color-lightgrey--);
     border-radius: 0px 0px 5px 5px;
+}
+
+.text__addCardBtn{
+    font-family: cursive;
+    position: relative;
+    top: 8px;
+    left: 20px;
+    font-family: var(--font-family--);
 }
 
 .boards__addCardBtn:hover{
@@ -104,6 +97,14 @@ button {
 
 .boards__addCardBtn__addCardText{
   font-size: 1em;
+}
+
+.card{
+    background-color: white ;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 13px -7px #000000, 6px 3px 15px 5px rgba(0,0,0,0.16);
+    border-radius: 4px;
 }
 
 .popup-container{
