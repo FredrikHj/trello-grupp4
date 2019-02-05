@@ -29,6 +29,9 @@ button {
 .card{
   cursor: pointer;
 }
+.card__descIcon{
+  pointer-events: none;
+}
 
 .card__bottomDiv, .card__headerDiv__deleteButton__icon {
   pointer-events: none;
