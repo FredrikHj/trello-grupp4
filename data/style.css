@@ -25,6 +25,9 @@ h1{
 .card__bottomDiv{
   pointer-events: none;
 }
+/* .material-icons__delete{
+  pointer-events: none;
+} */
 
 
 .boards__container{
