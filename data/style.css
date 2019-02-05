@@ -26,6 +26,9 @@ h1{
 button {
   cursor: pointer;
 }
+.card{
+  cursor: pointer;
+}
 
 .card__bottomDiv, .card__headerDiv__deleteButton__icon {
   pointer-events: none;
@@ -33,6 +36,9 @@ button {
 /* .material-icons__delete{
   pointer-events: none;
 } */
+.card__headerDiv__editButton{
+  pointer-events: none;
+}
 
 .boards__container{
     height: 100%;

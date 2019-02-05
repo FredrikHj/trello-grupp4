@@ -249,14 +249,14 @@
   }
 
   function edit(){
-      let selHeaderDiv = document.querySelectorAll('.card__headerDiv__editButton');
+      let selHeaderDiv = document.querySelectorAll('.card');
 
       for(let i = 0; i < selHeaderDiv.length; i++){
           selHeaderDiv[i].addEventListener('click', editCard);
       }}
 
   function editCard(e){
-    
+      
       let selSelect = document.querySelector('.popup__select__container');
       selSelect.classList.add('displayBlock');
       selSelect.classList.remove('displayNone');
@@ -266,11 +266,11 @@
       textArea.value = '';
       //popupPtag.textContent = '';
       let eventTarget = e.target;
-      let selCardDiv = document.querySelector('.card__headerDiv__deleteButton');
-      console.log(selCardDiv);
+      let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+     
 
       for(let key in todoObj.todos){
-          console.log(e.target);
+          
           
           tempIdTodo = selCardDiv.getAttribute('id');
           saveButton.setAttribute('id', tempIdTodo);
@@ -279,7 +279,7 @@
           console.log(selCardDiv.id);
 
           for(let i = 0; i < saveButtonAll.length; i++){
-              console.log(saveButtonAll);
+            
               if(saveButtonAll[i].id.includes('Todo')){
                   removeClasLists();
                   saveButtonAll[i].classList.add('popup__saveButton--todo');
@@ -315,7 +315,7 @@
           console.log(selCardDiv.id);
 
           for(let i = 0; i < saveButtonAll.length; i++){
-              console.log(saveButtonAll);
+           
               if(saveButtonAll[i].id.includes('Work')){
                   removeClasLists();
                   saveButtonAll[i].classList.add('popup__saveButton--working');
@@ -350,7 +350,7 @@
           console.log(selCardDiv.id);
 
           for(let i = 0; i < saveButtonAll.length; i++){
-              console.log(saveButtonAll);
+          
               if(saveButtonAll[i].id.includes('Done')){
                   removeClasLists();
                   saveButtonAll[i].classList.add('popup__saveButton--done');
@@ -396,7 +396,7 @@
               if(e.target.id === todoObj.todos[key].identifier){
               todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
               exportObject.renderView(); 
-               
+              e.stopPropagation();
 
           }
            
@@ -405,7 +405,7 @@
               if(e.target.id === workingObj.workings[key].identifier){
               workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
               exportObject.renderView();  
-             
+              e.stopPropagation();
           }
            
           } 
@@ -413,7 +413,7 @@
               if(e.target.id === doneObj.dones[key].identifier){
               doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
               exportObject.renderView(); 
-              
+              e.stopPropagation();
           }
            
           } 
@@ -466,7 +466,7 @@
                   saveButton.id = tempIdTodo;
                  
               }
-               console.log(todoObj.todos);
+             
            
           
       }
@@ -496,8 +496,7 @@
              
           }
           
-          console.log(idWorkings);
-          console.log(workingObj.workings);
+    
           
           
       }
@@ -510,7 +509,7 @@
               exportObject.renderView();
               del();
               saveButton.idDone = idDone;
-              console.log(saveButton.idDone);
+             
           }
           else{
               for(let key in doneObj.dones){
@@ -584,7 +583,7 @@
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
       
       
-      console.log(e.target.id);
+
       for(let key in todoObj.todos){
 
           if(e.target.id === todoObj.todos[key].identifier){
@@ -595,7 +594,7 @@
               
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
-              console.log(saveSelect);
+             
 
               if(saveSelect === 'Todo'){
                   
@@ -637,7 +636,7 @@
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
       
       
-      console.log(e.target.id);
+   
       for(let key in workingObj.workings){
 
           if(e.target.id === workingObj.workings[key].identifier){
@@ -648,7 +647,7 @@
               
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
-              console.log(saveSelect);
+         
 
               if(saveSelect === 'Todo'){
                   
@@ -689,7 +688,7 @@
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
       
       
-      console.log(e.target.id);
+
       for(let key in doneObj.dones){
 
           if(e.target.id === doneObj.dones[key].identifier){
@@ -700,7 +699,7 @@
               
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
-              console.log(saveSelect);
+            
 
               if(saveSelect === 'Todo'){
                   
