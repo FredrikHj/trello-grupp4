@@ -146,16 +146,16 @@
       let todoObj = {
           todos: [],
           addTodos: function(title, desc, identifier){
-
+              
               this.todos.push({
                   titles: title,
                   descs: desc,
                   identifier: identifier
               });
           }
-
+          
       };
-
+      
       let workingObj = {
           workings: [],
           addWorkings: function(title, desc, identifier){
@@ -166,7 +166,7 @@
               });
           }
       };
-
+      
       let doneObj = {
           dones: [],
           addDones: function(title, desc, identifier){
@@ -180,22 +180,22 @@
 
 
   function saveTextEvent(){
-
+      
       saveButton.addEventListener('click', saveText);
-
-
+      
+      
   }
 
   function abortText(){
-
-
+       
+      
       for(let i = 0; i < abortButtons.length; i++){
           abortButtons[i].addEventListener('click', abortPopup);
-
+          
       }
       showArea();
-
-
+      
+     
   }
 
   function showArea(){
@@ -232,46 +232,46 @@
       textArea.classList.remove('displayBlock');
       popupPtag.classList.add('displayBlock');
       popupPtag.classList.remove('displayNone');
-
+      
 
   }
 
 
   function del(){
-
-
+      
+      
       let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
-
+          
           for(let i = 0; i < deleteX.length; i++){
               deleteX[i].addEventListener('click', deleteCard);
           }
-
+          
   }
 
   function edit(){
-      let selHeaderDiv = document.querySelectorAll('.card');
+      let selHeaderDiv = document.querySelectorAll('.card__headerDiv__editButton');
 
       for(let i = 0; i < selHeaderDiv.length; i++){
           selHeaderDiv[i].addEventListener('click', editCard);
       }}
 
   function editCard(e){
-
+    
       let selSelect = document.querySelector('.popup__select__container');
       selSelect.classList.add('displayBlock');
       selSelect.classList.remove('displayNone');
-
-
+      
+      
       textField.value = '';
       textArea.value = '';
       //popupPtag.textContent = '';
       let eventTarget = e.target;
-      let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+      let selCardDiv = document.querySelector('.card__headerDiv__deleteButton');
       console.log(selCardDiv);
 
       for(let key in todoObj.todos){
           console.log(e.target);
-
+          
           tempIdTodo = selCardDiv.getAttribute('id');
           saveButton.setAttribute('id', tempIdTodo);
           selCardDiv.setAttribute('id', tempIdTodo);
@@ -285,12 +285,12 @@
                   saveButtonAll[i].classList.add('popup__saveButton--todo');
                   moveButtonsClassListAdd();
                   selMoveButtonTodo.classList.add('displayBlock');
-
-
+                  
+                  
               }
           }
-
-
+         
+          
          if(selCardDiv.id === todoObj.todos[key].identifier){
               textField.value = todoObj.todos[key].titles;
               textArea.value = todoObj.todos[key].descs;
@@ -302,10 +302,10 @@
               else{
                   popupPtag.textContent = todoObj.todos[key].descs;
               }
-
-
+              
+              
           }
-
+          
       }
       for(let key in workingObj.workings){
           tempIdWorking = selCardDiv.getAttribute('id');
@@ -321,10 +321,10 @@
                   saveButtonAll[i].classList.add('popup__saveButton--working');
                   moveButtonsClassListAdd();
                   selMoveButtonworking.classList.add('displayBlock');
-
+                  
               }
           }
-
+          
          if(selCardDiv.id === workingObj.workings[key].identifier){
               textField.value = workingObj.workings[key].titles;
               textArea.value = workingObj.workings[key].descs;
@@ -336,14 +336,14 @@
               else{
                   popupPtag.textContent = workingObj.workings[key].descs;
               }
-
-
+              
+              
           }
-
+          
       }
       for(let key in doneObj.dones){
           tempIdDone = selCardDiv.getAttribute('id');
-
+          
           saveButton.setAttribute('id', tempIdDone);
           selCardDiv.setAttribute('id', tempIdDone);
           selMoveButtonDone.setAttribute('id', tempIdDone);
@@ -358,7 +358,7 @@
                   selMoveButtonDone.classList.add('displayBlock');
               }
           }
-
+          
          if(selCardDiv.id === doneObj.dones[key].identifier){
               textField.value = doneObj.dones[key].titles;
               textArea.value = doneObj.dones[key].descs;
@@ -370,77 +370,77 @@
               else{
                   popupPtag.textContent = doneObj.dones[key].descs;
               }
-
-
+              
+              
           }
-
+          
       }
-
+      
       // om identifier är tom kör render. om inte kör inte.
 
       // loopa objekten och kolla om selCarddiv.id === todoObj.todos[key].identifier.
       // om ja, todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
 
-
+    
       popupWindow.classList.add('displayBlock');
       popupWindow.classList.remove('displayNone');
-
+      
   }
-
+      
 
   function deleteCard(e){
 
-
-
+      
+          
           for(let key in todoObj.todos){
               if(e.target.id === todoObj.todos[key].identifier){
               todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-              exportObject.renderView();
-
-
-          }
+              exportObject.renderView(); 
+               
 
           }
+           
+          } 
           for(let key in workingObj.workings){
               if(e.target.id === workingObj.workings[key].identifier){
               workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-              exportObject.renderView();
-
+              exportObject.renderView();  
+             
           }
-
-          }
+           
+          } 
           for(let key in doneObj.dones){
               if(e.target.id === doneObj.dones[key].identifier){
               doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-              exportObject.renderView();
-
+              exportObject.renderView(); 
+              
           }
+           
+          } 
 
-          }
-
-
+          
   }
-
+     
 
 
 
   function saveText(e){
-
+     
       saveButton.removeEventListener('click', saveText);
-
+      
       let eventTarget = e.target;
       textFromTextField = textField.value;
       textFromTextArea = textArea.value;
       textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
 
-
-
-
+      
+      
+      
       if(eventTarget.classList[1] === 'popup__saveButton--todo'){
-
+          
           // om den har id/klassen skriv in de nya värdena på nycklarna och stäng ner fönstret
-
-
+              
+             
               if(saveButton.id.length <= 0){
 
               idTodo = 'Todo: ' + todoCounter;
@@ -460,15 +460,15 @@
                           exportObject.renderView();
                       }
 
-
-
+                      
+                      
                   }
                   saveButton.id = tempIdTodo;
-
+                 
               }
                console.log(todoObj.todos);
-
-
+           
+          
       }
       if(eventTarget.classList[1] === 'popup__saveButton--working'){
           if(saveButton.id.length <= 0){
@@ -489,17 +489,17 @@
                       exportObject.renderView();
                   }
 
-
-
+                  
+                  
               }
               saveButton.id = tempIdWorking;
-
+             
           }
-
+          
           console.log(idWorkings);
           console.log(workingObj.workings);
-
-
+          
+          
       }
       if(eventTarget.classList[1] === 'popup__saveButton--done'){
           if(saveButton.id.length <= 0){
@@ -521,18 +521,18 @@
                       exportObject.renderView();
                   }
 
-
-
+                  
+                  
               }
               saveButton.id = tempIdDone;
-
+             
           }
-
-
-
-
+          
+          
+          
+          
       }
-
+      
   }
 
 
@@ -543,7 +543,7 @@
       textArea = document.querySelector('.popup__textarea');
       textArea.classList.add('displayBlock');
       textArea.classList.remove('displayNone');
-
+      
   }
 
 
@@ -559,22 +559,22 @@
       textArea.classList.remove('displayBlock');
       popupPtag.classList.add('displayBlock');
       popupPtag.classList.remove('displayNone');
-
+      
       saveTextEvent();
   }
 
   function moveTodo(){
-
+      
       selMoveButtonTodo.addEventListener('click', moveCardTodo);
   }
   function moveWorking(){
-
+      
       selMoveButtonworking.addEventListener('click', moveCardWorking);
-  }
+  }   
   function moveDone(){
-
+      
       selMoveButtonDone.addEventListener('click', moveCardDone);
-  }
+  }   
 
   function moveCardTodo(e){
       // Fixa de andra movecard. Börja på höga nummer där med men inte samma;
@@ -582,8 +582,8 @@
       todoNewIdTodo = 'Todo: ' + todoNewTodoCounter;
       todoNewIdWorking = 'Workings: ' + todoNewWorkingCounter;
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
-
-
+      
+      
       console.log(e.target.id);
       for(let key in todoObj.todos){
 
@@ -592,51 +592,51 @@
               let saveTextField = textField.value;
               let saveTextArea = textArea.value;
               let saveId = e.target.id;
-
+              
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
               console.log(saveSelect);
 
               if(saveSelect === 'Todo'){
-
+                  
                   todoNewTodoCounter++;
                   todoObj.addTodos(saveTextField, saveTextArea, todoNewIdTodo);
                   todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-
+                  
               }
 
               else if(saveSelect === 'Working'){
-
+                  
                   todoNewWorkingCounter++;
                   workingObj.addWorkings(saveTextField, saveTextArea, todoNewIdWorking);
                   todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-
+                  
               }
               else if(saveSelect === 'Done'){
-
+                  
                   todoNewDoneCounter++;
                   doneObj.addDones(saveTextField, saveTextArea, todoNewIdDone);
                   todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
-
-              }
-
-              exportObject.renderView();
+                  
+              } 
+          
+              exportObject.renderView(); 
 
           }
 
-
-
+          
+          
       }
 
 
   }
   function moveCardWorking(e){
-
+      
       todoNewIdTodo = 'Todo: ' + todoNewTodoCounter;
       todoNewIdWorking = 'Workings: ' + todoNewWorkingCounter;
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
-
-
+      
+      
       console.log(e.target.id);
       for(let key in workingObj.workings){
 
@@ -645,40 +645,40 @@
               let saveTextField = textField.value;
               let saveTextArea = textArea.value;
               let saveId = e.target.id;
-
+              
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
               console.log(saveSelect);
 
               if(saveSelect === 'Todo'){
-
+                  
                   todoNewTodoCounter++;
                   todoObj.addTodos(saveTextField, saveTextArea, todoNewIdTodo);
                   workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-
+                  
               }
 
               else if(saveSelect === 'Working'){
-
+                  
                   todoNewWorkingCounter++;
                   workingObj.addWorkings(saveTextField, saveTextArea, todoNewIdWorking);
                   workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-
+                  
               }
               else if(saveSelect === 'Done'){
-
+                  
                   todoNewDoneCounter++;
                   doneObj.addDones(saveTextField, saveTextArea, todoNewIdDone);
                   workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-
-              }
-
-              exportObject.renderView();
+                  
+              } 
+          
+              exportObject.renderView(); 
 
           }
 
-
-
+          
+          
       }
 
 
@@ -687,8 +687,8 @@
       todoNewIdTodo = 'Todo: ' + todoNewTodoCounter;
       todoNewIdWorking = 'Workings: ' + todoNewWorkingCounter;
       todoNewIdDone = 'Done: ' + todoNewDoneCounter;
-
-
+      
+      
       console.log(e.target.id);
       for(let key in doneObj.dones){
 
@@ -697,40 +697,40 @@
               let saveTextField = textField.value;
               let saveTextArea = textArea.value;
               let saveId = e.target.id;
-
+              
               let selSelect = document.querySelector('select');
               let saveSelect = selSelect.value;
               console.log(saveSelect);
 
               if(saveSelect === 'Todo'){
-
+                  
                   todoNewTodoCounter++;
                   todoObj.addTodos(saveTextField, saveTextArea, todoNewIdTodo);
                   doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-
+                  
               }
 
               else if(saveSelect === 'Working'){
-
+                  
                   todoNewWorkingCounter++;
                   workingObj.addWorkings(saveTextField, saveTextArea, todoNewIdWorking);
                   doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-
+                  
               }
               else if(saveSelect === 'Done'){
-
+                  
                   todoNewDoneCounter++;
                   doneObj.addDones(saveTextField, saveTextArea, todoNewIdDone);
                   doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-
-              }
-
-              exportObject.renderView();
+                  
+              } 
+          
+              exportObject.renderView(); 
 
           }
 
-
-
+          
+          
       }
 
 
@@ -762,7 +762,7 @@
       moveWorking: moveWorking,
       moveDone: moveDone,
       removeClassListsMoveButton: removeClassListsMoveButton,
-
+      
   };
 
   // Fil nr 1 i vårt grupparbete - Importerar Andreas och Elins JS filer
@@ -778,8 +778,8 @@
 
     exportObject$1.abortText();
     exportObject$1.saveTextEvent();
-
-
+    
+   
     let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
     for (let i = 0; i < getListenerBtn.length; i++) {
       let getTargetBtn = getListenerBtn[i];
@@ -793,21 +793,21 @@
         console.log(saveButton);
         if(e.target.classList[1] === 'boards__addCardBtnTodo'){
           exportObject$1.removeClasLists();
-
+          
           saveButton.classList.add('popup__saveButton--todo');
-
+          
         }
         else if(e.target.classList[1] === 'boards__addCardBtnWorking'){
           exportObject$1.removeClasLists();
           exportObject$1.removeClassListsMoveButton();
           saveButton.classList.add('popup__saveButton--working');
-
+          
         }
         else if(e.target.classList[1] === 'boards__addCardBtnDone'){
           exportObject$1.removeClasLists();
           exportObject$1.removeClassListsMoveButton();
           saveButton.classList.add('popup__saveButton--done');
-
+          
         }
 
         console.log(e.target);
@@ -861,7 +861,7 @@
       });
     }
 
-
+   
   }
 
 }());

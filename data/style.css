@@ -27,7 +27,7 @@ button {
   cursor: pointer;
 }
 
-.card__bottomDiv{
+.card__bottomDiv, .card__headerDiv__deleteButton__icon {
   pointer-events: none;
 }
 /* .material-icons__delete{

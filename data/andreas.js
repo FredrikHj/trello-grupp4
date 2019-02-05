@@ -143,7 +143,7 @@ function del(){
 }
 
 function edit(){
-    let selHeaderDiv = document.querySelectorAll('.card');
+    let selHeaderDiv = document.querySelectorAll('.card__headerDiv__editButton');
 
     for(let i = 0; i < selHeaderDiv.length; i++){
         selHeaderDiv[i].addEventListener('click', editCard);
@@ -161,7 +161,7 @@ function editCard(e){
     textArea.value = '';
     //popupPtag.textContent = '';
     let eventTarget = e.target;
-    let selCardDiv = eventTarget.querySelector('.card__headerDiv__deleteButton');
+    let selCardDiv = document.querySelector('.card__headerDiv__deleteButton');
     console.log(selCardDiv)
 
     for(let key in todoObj.todos){
