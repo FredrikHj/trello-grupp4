@@ -1,6 +1,7 @@
 // Fixa så att man klickar på rätt sak när man trycker på krysset.
 import elin from './elin.js';
 
+
 let textField = document.querySelector('.popup__textField')
 let textArea = document.querySelector('.popup__textarea');
 let popupWindow = document.querySelector('.popup-container');
@@ -46,9 +47,9 @@ let todoNewIdDone;
                 identifier: identifier
             });
         }
-        
+
     };
-    
+
     let workingObj = {
         workings: [],
         addWorkings: function(title, desc, identifier){
@@ -59,7 +60,7 @@ let todoNewIdDone;
             });
         }
     };
-    
+
     let doneObj = {
         dones: [],
         addDones: function(title, desc, identifier){
@@ -73,22 +74,22 @@ let todoNewIdDone;
 
 
 function saveTextEvent(){
-    
+
     saveButton.addEventListener('click', saveText);
-    
-    
+
+
 }
 
 function abortText(){
-     
-    
+
+
     for(let i = 0; i < abortButtons.length; i++){
         abortButtons[i].addEventListener('click', abortPopup)
-        
+
     }
     showArea();
-    
-   
+
+
 }
 
 function showArea(){
@@ -126,20 +127,20 @@ function saveContentInPopup(){
     textArea.classList.remove('displayBlock');
     popupPtag.classList.add('displayBlock');
     popupPtag.classList.remove('displayNone');
-    
+
 
 }
 
 
+
 function del(){
     
-    
     let deleteX = document.querySelectorAll('.card__headerDiv__deleteButton');
-        
+
         for(let i = 0; i < deleteX.length; i++){
             deleteX[i].addEventListener('click', deleteCard);
         }
-        
+
 }
 
 function edit(){
@@ -271,10 +272,7 @@ function editCard(e){
         
     }
     
-    // om identifier är tom kör render. om inte kör inte.
 
-    // loopa objekten och kolla om selCarddiv.id === todoObj.todos[key].identifier.
-    // om ja, todoObj.todos.splice(todoObj.todos.lastIndexOf(todoObj.todos[key]), 1,);
 
   
     popupWindow.classList.add('displayBlock');
@@ -293,31 +291,28 @@ function deleteCard(e){
             elin.renderView(); 
              
 
+
         }
-         
-        } 
         for(let key in workingObj.workings){
             if(e.target.id === workingObj.workings[key].identifier){
             workingObj.workings.splice(workingObj.workings.lastIndexOf(workingObj.workings[key]), 1,);
-            elin.renderView();  
-           
+            elin.renderView();
+
         }
-         
-        } 
+
+        }
         for(let key in doneObj.dones){
             if(e.target.id === doneObj.dones[key].identifier){
             doneObj.dones.splice(doneObj.dones.lastIndexOf(doneObj.dones[key]), 1,);
-            elin.renderView(); 
-            
+            elin.renderView();
+
         }
-         
-        } 
+
+        }
 
         
 }
-   
-
-
+}
 
 function saveText(e){
    
@@ -328,8 +323,7 @@ function saveText(e){
     textFromTextArea = textArea.value;
     textFromTextArea = textFromTextArea.replace(/\r?\n/g, '<br/>');
 
-    
-    
+
     
     if(eventTarget.classList[1] === 'popup__saveButton--todo'){
         
@@ -364,6 +358,7 @@ function saveText(e){
              console.log(todoObj.todos)
          
         
+
     }
     if(eventTarget.classList[1] === 'popup__saveButton--working'){
         if(saveButton.id.length <= 0){
@@ -393,6 +388,7 @@ function saveText(e){
         
         console.log(idWorkings);
         console.log(workingObj.workings)
+
         
         
     }
@@ -423,12 +419,11 @@ function saveText(e){
            
         }
         
-        
-        
-        
+
     }
     
 }
+
 
 
 function showTextArea(e){
@@ -438,7 +433,7 @@ function showTextArea(e){
     textArea = document.querySelector('.popup__textarea');
     textArea.classList.add('displayBlock');
     textArea.classList.remove('displayNone');
-    
+
 }
 
 
@@ -660,8 +655,5 @@ let exportObject = {
     
 };
 
-
 export default exportObject;
-
-
 

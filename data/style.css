@@ -347,6 +347,9 @@ pre{
   .card__bottomDiv {
     display: flex;
     cursor: move;
+    border: 2px solid red;
+  }
+  .card__bottomDiv__leftArrow material-icons, .card__bottomDiv__rightArrow material-icons{
     z-index: 1;
   }
 
