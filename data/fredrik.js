@@ -6,30 +6,44 @@ import elin from './elin.js';
 let getPopup = document.querySelector('.popup-container');
 
 // Add cards
+andreas.moveTodo();
+andreas.moveWorking();
+andreas.moveDone();
 addIteam();
 function addIteam(){
 
   andreas.abortText();
   andreas.saveTextEvent();
+  
  
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
     getTargetBtn.addEventListener('click', function(e){
+      let selSelect = document.querySelector('.popup__select__container')
+      selSelect.classList.add('displayNone');
+      selSelect.classList.remove('displayBlock');
+      let selMoveButton = document.querySelector('.popup__move');
 
       let saveButton = document.querySelector('.popup__saveButton')
       console.log(saveButton)
       if(e.target.classList[1] === 'boards__addCardBtnTodo'){
         andreas.removeClasLists();
+        
         saveButton.classList.add('popup__saveButton--todo')
+        
       }
       else if(e.target.classList[1] === 'boards__addCardBtnWorking'){
         andreas.removeClasLists();
+        andreas.removeClassListsMoveButton();
         saveButton.classList.add('popup__saveButton--working')
+        
       }
       else if(e.target.classList[1] === 'boards__addCardBtnDone'){
         andreas.removeClasLists();
+        andreas.removeClassListsMoveButton();
         saveButton.classList.add('popup__saveButton--done')
+        
       }
 
       console.log(e.target)
@@ -90,8 +104,6 @@ function addIteam(){
     });
   }
 
-  moveTodos();
+ 
 }
-function moveTodos () {
-console.log('vfd');
-}
+

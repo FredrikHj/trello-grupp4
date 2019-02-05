@@ -22,6 +22,9 @@ main{
 h1{
     font-family: var(--font-family--);
 }
+.card__bottomDiv{
+  pointer-events: none;
+}
 
 
 .boards__container{
