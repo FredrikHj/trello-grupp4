@@ -32,17 +32,6 @@ function renderCards(element, array) {
     title.classList.add('card__headerDiv__title');
     header.appendChild(title);
 
-    // //Adding edit button
-    // let editButton = document.createElement('button');
-    // editButton.classList.add('card__headerDiv__editButton');
-    // editButton.setAttribute('id', identifier);
-    // header.appendChild(editButton);
-    // let editIcon = document.createElement('i');
-    // editIcon.classList.add('material-icons');
-    // editIcon.classList.add('card__headerDiv__editButton__icon');
-    // editIcon.textContent = 'edit';
-    // editButton.appendChild(editIcon);
-
     //Adding delete button
     let deleteButton = document.createElement('button');
     deleteButton.classList.add('card__headerDiv__deleteButton');
@@ -61,29 +50,6 @@ function renderCards(element, array) {
       textIcon.textContent = 'description';
       card.appendChild(textIcon);
     }
-
-    // //Adding a container with the arrows
-    // let bottomDiv = document.createElement('div');
-    // bottomDiv.classList.add('card__bottomDiv');
-    // card.appendChild(bottomDiv);
-    //
-    // // -- Left arrow --
-    // let leftArrow = document.createElement('i');
-    // let getBtnToLeftArrow = document.createElement('button');
-    // getBtnToLeftArrow.classList.add('card__bottomDiv__leftArrow');
-    // leftArrow.classList.add('material-icons');
-    // leftArrow.textContent = 'arrow_back';
-    // getBtnToLeftArrow.appendChild(leftArrow);
-    // bottomDiv.appendChild(getBtnToLeftArrow);
-    //
-    // // -- Right arrow --
-    // let rightArrow = document.createElement('i');
-    // let getBtnToRightArrow = document.createElement('button');
-    // getBtnToRightArrow.classList.add('card__bottomDiv__rightArrow');
-    // rightArrow.classList.add('material-icons');
-    // rightArrow.textContent = 'arrow_forward';
-    // getBtnToRightArrow.appendChild(rightArrow);
-    // bottomDiv.appendChild(getBtnToRightArrow);
 }
 }
 
@@ -97,6 +63,7 @@ function renderView() {
   renderCards(todoContainer, andreas.todoObj.todos);
   renderCards(workingContainer, andreas.workingObj.workings);
   renderCards(doneContainer, andreas.doneObj.dones);
+  
   andreas.del();
   andreas.edit();
   }
