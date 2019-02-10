@@ -14,8 +14,8 @@ function addIteam(){
 
   andreas.abortText();
   andreas.saveTextEvent();
-  
- 
+
+
   let getListenerBtn = document.querySelectorAll('.boards__addCardBtn');
   for (let i = 0; i < getListenerBtn.length; i++) {
     let getTargetBtn = getListenerBtn[i];
@@ -29,21 +29,21 @@ function addIteam(){
       console.log(saveButton)
       if(e.target.classList[1] === 'boards__addCardBtnTodo'){
         andreas.removeClasLists();
-        
+
         saveButton.classList.add('popup__saveButton--todo')
-        
+
       }
       else if(e.target.classList[1] === 'boards__addCardBtnWorking'){
         andreas.removeClasLists();
         andreas.removeClassListsMoveButton();
         saveButton.classList.add('popup__saveButton--working')
-        
+
       }
       else if(e.target.classList[1] === 'boards__addCardBtnDone'){
         andreas.removeClasLists();
         andreas.removeClassListsMoveButton();
         saveButton.classList.add('popup__saveButton--done')
-        
+
       }
 
       console.log(e.target)
@@ -78,32 +78,15 @@ function addIteam(){
 
     var yyyy = today.getFullYear();
 
-    // Visa tid
-    // var h = today.getHours();
-    // var m = today.getMinutes();
-    // var s = today.getSeconds();
-    // m = checkTime(m);
-    // s = checkTime(s);
-
-    // Infoga allt och presentera i namngiven div
-
     getDatePlace.textContent = dd + " " + monthname + " " + yyyy;
-
-    //setTimeout(startDateTime, 500);
-
     function checkTime(i){
       if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
       return i;
     }
-    // Kalla på function för beskrivning utvikning
 
     // Titel i popupen töms
     let getTitelPopup = document.querySelector('.popup__textField');
     getTitelPopup.value = '';
-
     });
   }
-
- 
 }
-
