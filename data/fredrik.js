@@ -51,7 +51,6 @@ function addIteam(){
 
     // Datum och tid --------------------------------------------------------------------------------------------
     let getDatePlace = document.querySelector('.popup__todaysDate');
-
     var today = new Date();
 
     //  Visa datum
