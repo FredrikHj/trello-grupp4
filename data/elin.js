@@ -63,7 +63,8 @@ function renderView() {
   renderCards(todoContainer, andreas.todoObj.todos);
   renderCards(workingContainer, andreas.workingObj.workings);
   renderCards(doneContainer, andreas.doneObj.dones);
-  
+
+  //Adding event listeners on the card and the delete button
   andreas.del();
   andreas.edit();
   }
