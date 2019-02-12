@@ -115,11 +115,11 @@ function removeClassListsMoveButton(){
 
 function saveContentInPopup(){
 
-    popupPtag.textContent = '';
+    popupPtag.innerHTML = '';
     popupPtag.innerHTML = textFromTextArea;
 
-    if(popupPtag.textContent.length <= 0){
-        popupPtag.textContent = 'Lägg till beskrivning'
+    if(popupPtag.innerHTML.length <= 0){
+        popupPtag.innerHTML = 'Lägg till beskrivning'
     };
 
     textArea.classList.add('displayNone');
@@ -188,14 +188,14 @@ function editCard(e){
 
        if(selCardDiv.id === todoObj.todos[key].identifier){
             textField.value = todoObj.todos[key].titles;
-            textArea.value = todoObj.todos[key].descs;
-            popupPtag.textContent = todoObj.todos[key].descs;
+            textArea.value = todoObj.todos[key].descs.replace(/<br\s*[\/]?>/gi, "\n");
+            popupPtag.innerHTML = todoObj.todos[key].descs;
 
-            if(popupPtag.textContent === ''){
-                popupPtag.textContent = 'Lägg till beskrivning'
+            if(popupPtag.innerHTML === ''){
+                popupPtag.innerHTML = 'Lägg till beskrivning'
             }
             else{
-                popupPtag.textContent = todoObj.todos[key].descs;
+                popupPtag.innerHTML = todoObj.todos[key].descs;
             }
 
 
@@ -222,14 +222,14 @@ function editCard(e){
 
        if(selCardDiv.id === workingObj.workings[key].identifier){
             textField.value = workingObj.workings[key].titles;
-            textArea.value = workingObj.workings[key].descs;
-            popupPtag.textContent = workingObj.workings[key].descs;
+            textArea.value = workingObj.workings[key].descs.replace(/<br\s*[\/]?>/gi, "\n");;
+            popupPtag.innerHTML = workingObj.workings[key].descs;
 
-            if(popupPtag.textContent === ''){
-                popupPtag.textContent = 'Lägg till beskrivning'
+            if(popupPtag.innerHTML === ''){
+                popupPtag.innerHTML = 'Lägg till beskrivning'
             }
             else{
-                popupPtag.textContent = workingObj.workings[key].descs;
+                popupPtag.innerHTML = workingObj.workings[key].descs;
             }
 
 
@@ -256,14 +256,14 @@ function editCard(e){
 
        if(selCardDiv.id === doneObj.dones[key].identifier){
             textField.value = doneObj.dones[key].titles;
-            textArea.value = doneObj.dones[key].descs;
-            popupPtag.textContent = doneObj.dones[key].descs;
+            textArea.value = doneObj.dones[key].descs.replace(/<br\s*[\/]?>/gi, "\n");
+            popupPtag.innerHTML = doneObj.dones[key].descs;
 
-            if(popupPtag.textContent === ''){
-                popupPtag.textContent = 'Lägg till beskrivning'
+            if(popupPtag.innerHTML === ''){
+                popupPtag.innerHTML = 'Lägg till beskrivning'
             }
             else{
-                popupPtag.textContent = doneObj.dones[key].descs;
+                popupPtag.innerHTML = doneObj.dones[key].descs;
             }
 
 
@@ -351,7 +351,7 @@ function saveText(e){
 
                     if(e.target.id === todoObj.todos[key].identifier){
                         todoObj.todos[key].titles = textField.value;
-                        todoObj.todos[key].descs = textArea.value;
+                        todoObj.todos[key].descs = textArea.value.replace(/\r?\n/g, '<br/>');
                         elin.renderView();
                     }
 
@@ -380,7 +380,7 @@ function saveText(e){
 
                 if(e.target.id === workingObj.workings[key].identifier){
                     workingObj.workings[key].titles = textField.value;
-                    workingObj.workings[key].descs = textArea.value;
+                    workingObj.workings[key].descs = textArea.value.replace(/\r?\n/g, '<br/>');
                     elin.renderView();
                 }
 
@@ -411,7 +411,7 @@ function saveText(e){
 
                 if(e.target.id === doneObj.dones[key].identifier){
                     doneObj.dones[key].titles = textField.value;
-                    doneObj.dones[key].descs = textArea.value;
+                    doneObj.dones[key].descs = textArea.value.replace(/\r?\n/g, '<br/>');
                     elin.renderView();
                 }
 
@@ -484,7 +484,7 @@ function moveCardTodo(e){
         if(e.target.id === todoObj.todos[key].identifier){
 
             let saveTextField = textField.value
-            let saveTextArea = textArea.value;
+            let saveTextArea = textArea.value.replace(/\r?\n/g, '<br/>');
             let saveId = e.target.id;
 
             let selSelect = document.querySelector('select');
@@ -537,7 +537,7 @@ function moveCardWorking(e){
         if(e.target.id === workingObj.workings[key].identifier){
 
             let saveTextField = textField.value
-            let saveTextArea = textArea.value;
+            let saveTextArea = textArea.value.replace(/\r?\n/g, '<br/>');
             let saveId = e.target.id;
 
             let selSelect = document.querySelector('select');
@@ -589,7 +589,7 @@ function moveCardDone(e){
         if(e.target.id === doneObj.dones[key].identifier){
 
             let saveTextField = textField.value
-            let saveTextArea = textArea.value;
+            let saveTextArea = textArea.value.replace(/\r?\n/g, '<br/>');
             let saveId = e.target.id;
 
             let selSelect = document.querySelector('select');
